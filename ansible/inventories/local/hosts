@@ -1,6 +1,0 @@
-[web]
-192.168.2.10
-
-[web:vars]
-ansible_user=vagrant
-ansible_ssh_private_key_file=../.vagrant/machines/website-2017/virtualbox/private_key

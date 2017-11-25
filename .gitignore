@@ -1,11 +1,9 @@
 **/.*
 **/*.log
-**/*.retry
 
 !.angular-cli.json
 !.editorconfig
 !.gitignore
 
-ansible/roles/
 dist/
 node_modules/
