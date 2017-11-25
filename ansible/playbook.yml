@@ -11,9 +11,9 @@
       apt_repository:
         repo: "ppa:ondrej/php"
         state: present
+        update_cache: yes
 
   roles:
-    - { role: common }
     - { role: geerlingguy.php }
     - { role: geerlingguy.mysql }
     - { role: geerlingguy.nginx }
