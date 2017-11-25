@@ -10,7 +10,7 @@ The following programs must be install on your machine before you may install.
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 5.2.x
 - [Ansible](http://docs.ansible.com/ansible/latest/intro_installation.html) 2.4.x
 
-## How To Install
+## How to install
 
 #### 1. Clone the project repo:
     
@@ -55,3 +55,27 @@ vagrant up
 ```
 
 If everything went well, the web server should now be accessible at: [http://website-2017.dev](http://website-2017.dev)
+
+#### 5. Install npm dependencies:
+
+```bash
+npm install -g @angular/cli
+npm install
+```
+
+## Development server
+
+Run `ng serve` for a dev server.
+Navigate to `http://localhost:4200/`.
+The app will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component.
+You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project.
+The build artifacts will be stored in the `dist/` directory.
+Use the `-prod` flag for a production build.
