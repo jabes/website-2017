@@ -1,0 +1,89 @@
+nginx_remove_default_vhost: "true"
+nginx_vhosts:
+  - listen: "80 default_server"
+    server_name: "{{ vhost_name }}"
+    root: "{{ vhost_path }}"
+    index: "index.php index.html index.htm"
+    extra_parameters: |
+
+      # Attempt to resolve index
+      location / {
+          index index.php index.html;
+          try_files $uri $uri/ /index.php?$args;
+      }
+
+      # Prevent hidden files from being served
+      location ~ /\. {
+          deny all;
+      }
+
+      # Disable cache on static files
+      location ~* \.(?:js|css|png|jpg|jpeg|gif|ico|svg)$ {
+          expires off;
+          sendfile off;
+      }
+
+      # Pass all .php files to php-fpm server
+      location ~ \.php$ {
+          fastcgi_split_path_info ^(.+\.php)(/.+)$;
+          fastcgi_pass unix:/run/php/php{{ php_version }}-fpm.sock;
+          fastcgi_index index.php;
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          include fastcgi_params;
+      }
+
+php_version: "7.1"
+php_packages:
+  - "php{{ php_version }}-cli"
+  - "php{{ php_version }}-common"
+  - "php{{ php_version }}-curl"
+  - "php{{ php_version }}-fpm"
+  - "php{{ php_version }}-json"
+  - "php{{ php_version }}-mbstring"
+  - "php{{ php_version }}-mcrypt"
+  - "php{{ php_version }}-mysql"
+  - "php{{ php_version }}-opcache"
+  - "php{{ php_version }}-soap"
+  - "php{{ php_version }}-xml"
+  - "php-apcu"
+
+php_conf_paths:
+  - "/etc/php/{{ php_version }}/fpm"
+  - "/etc/php/{{ php_version }}/apache2"
+  - "/etc/php/{{ php_version }}/cli"
+
+php_extension_conf_paths:
+  - "/etc/php/{{ php_version }}/fpm/conf.d"
+  - "/etc/php/{{ php_version }}/apache2/conf.d"
+  - "/etc/php/{{ php_version }}/cli/conf.d"
+
+php_enable_php_fpm: "true"
+php_fpm_daemon: "php{{ php_version }}-fpm"
+php_fpm_conf_path: "/etc/php/{{ php_version }}/fpm"
+
+php_enable_webserver: "true"
+php_webserver_daemon: "nginx"
+
+php_enable_apc: "true"
+php_apc_conf_filename: "20-apcu.ini"
+
+php_opcache_enable: "true"
+php_opcache_conf_filename: "10-opcache.ini"
+
+php_memory_limit: "256M"
+php_upload_max_filesize: "64M"
+php_post_max_size: "32M"
+php_date_timezone: "America/Vancouver"
+
+mysql_databases:
+  - name: "{{ secret_mysql_db }}"
+    collation: "utf8_general_ci"
+    encoding: "utf8"
+
+mysql_users:
+  - name: "{{ secret_mysql_user_name }}"
+    password: "{{ secret_mysql_user_password }}"
+    host: "localhost"
+    priv: "{{ secret_mysql_db }}.*:ALL"
+
+nodejs_version: "8.x"

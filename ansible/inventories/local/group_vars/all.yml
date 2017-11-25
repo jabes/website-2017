@@ -1,0 +1,4 @@
+---
+vhost_path: "/var/www"
+vhost_name: "website-2017.dev"
+vhost_url: "http://{{ vhost_name }}"

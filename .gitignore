@@ -1,0 +1,10 @@
+**/.*
+**/*.log
+
+!.editorconfig
+!.gitignore
+
+ansible/roles/
+ansible/playbook.retry
+
+node_modules/
