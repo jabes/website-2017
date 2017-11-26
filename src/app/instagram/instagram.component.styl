@@ -1,7 +1,20 @@
+@import "../../assets/styles/functions"
+@import "../../assets/styles/variables"
+@import "../../assets/styles/mixins"
+
 .instagram-posts
-  display grid
-  grid-template-columns repeat(3, 1fr)
-  grid-gap 50px
+  +media-xs()
+    display grid
+    grid-template-columns repeat(1, 1fr)
+    grid-gap 4vw
+  +media-md()
+    display grid
+    grid-template-columns repeat(2, 1fr)
+    grid-gap 4vw
+  +media-lg()
+    display grid
+    grid-template-columns repeat(3, 1fr)
+    grid-gap 4vw
 
 .instagram-post
   position relative
@@ -28,44 +41,79 @@
       object-fit cover
 
   &:hover .post-overlay
-    display block
+    display flex
+    flex-direction column
 
   .post-overlay
-    user-select none
-    pointer-events none
     display none
     position absolute
     top 0
     left 0
     width 100%
     height 100%
-    padding 15px 30px
     background rgba(0, 0, 0, 0.8)
+    user-select none
+    pointer-events none
+    +media-xs()
+      padding 8vw
+    +media-md()
+      padding 4vw
+    +media-lg()
+      padding 3vw
 
   .post-caption
-    font-size 24px
+    flex 1
+    text-align center
     color white
+    +media-xs()
+      font-size 4.5vw
+      margin 5vw 0
+    +media-md()
+      font-size 2.5vw
+      margin 3vw 0
+    +media-lg()
+      font-size 1.5vw
+      margin 2vw 0
 
   .post-stats
-    position absolute
-    top 50%
-    left 50%
-    transform translate(-50%, -50%)
+    flex 0
     text-align center
+    color white
+    +media-xs()
+      margin 5vw 0
+    +media-md()
+      margin 3vw 0
+    +media-lg()
+      margin 2vw 0
 
     .post-stat
       display inline-block
-      margin 0 1rem
+      +media-xs()
+        margin 0 3vw
+      +media-md()
+        margin 0 2vw
+      +media-lg()
+        margin 0 1vw
 
       .stat-count
         display inline-block
         vertical-align middle
-        font-size 30px
-        color white
+        +media-xs()
+          font-size 6vw
+        +media-md()
+          font-size 3vw
+        +media-lg()
+          font-size 2vw
 
       .stat-icon
         display inline-block
         vertical-align middle
-        width 30px
-        height 30px
-        color white
+        +media-xs()
+          width 6vw
+          height 6vw
+        +media-md()
+          width 3vw
+          height 3vw
+        +media-lg()
+          width 2vw
+          height 2vw

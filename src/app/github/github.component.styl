@@ -1,24 +1,40 @@
+@import "../../assets/styles/functions"
+@import "../../assets/styles/variables"
+@import "../../assets/styles/mixins"
+
 .github-repos
-  display grid
-  grid-template-columns repeat(3, 1fr)
-  grid-gap 50px
+  +media-xs()
+    display grid
+    grid-template-columns repeat(1, 1fr)
+    grid-gap 20px
+  +media-md()
+    display grid
+    grid-template-columns repeat(2, 1fr)
+    grid-gap 30px
+  +media-lg()
+    display grid
+    grid-template-columns repeat(3, 1fr)
+    grid-gap 50px
 
 .repo-link
   display block
   text-decoration none
   h3
-    margin 0
     font-size 24px
     color #4078c0
+    margin 10px 0
   p
     font-size 18px
     color #767676
+    margin 10px 0
 
 .repo-stats
+  margin 10px 0
 
   .repo-stat
     display inline-block
-    margin-right 1rem
+    &:not(:last-child)
+      margin-right 1rem
 
     .stat-count
       display inline-block

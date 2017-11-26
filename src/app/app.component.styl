@@ -1,41 +1,70 @@
+@import "../assets/styles/functions"
+@import "../assets/styles/variables"
+@import "../assets/styles/mixins"
+
+header,
+section
+  display block
+  +media-xs()
+    margin-bottom 50px
+  +media-md()
+    margin-bottom 80px
+  +media-lg()
+    margin-bottom 120px
+
 header
 
   h1
     font-size 55px
     font-family 'Spectral SC', serif
+    line-height 1
     color #666
-    margin 0
+    margin 20px 0
   p
     font-size 22px
     color #888
-    margin 0
+    margin 20px 0
 
 section
 
   .section-heading,
   .section-body
-    margin 50px 0
+    +media-xs()
+      margin 20px 0
+    +media-md()
+      margin 30px 0
+    +media-lg()
+      margin 50px 0
 
   .section-heading
     h2
       font-size 40px
       font-family 'Spectral SC', serif
+      line-height 1
       color #AAA
       margin 0
 
 .social-icons
-  padding 20px 0
+  margin 30px 0
 
   .social-link
     display inline-block
-    margin-right 1rem
     font-size 0
     color red
     filter grayscale(100%)
     &:hover
       filter grayscale(0)
+    &:not(:last-child)
+      margin-right 1rem
 
   .social-icon
     display inline-block
-    width 50px
-    height 50px
+    +media-xs()
+      width 40px
+      height 40px
+    +media-md()
+      width 50px
+      height 50px
+    +media-lg()
+      width 60px
+      height 60px
