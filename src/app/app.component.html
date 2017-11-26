@@ -1,11 +1,45 @@
-<div class="section-heading">
-  <h1>Hashtags for days</h1>
-</div>
+<header>
 
-<app-instagram></app-instagram>
+  <h1>Justin Bull</h1>
+  <p>Web developer, arduino hobyist, woodworking tourist, bike packer.</p>
 
-<div class="section-heading">
-  <h1>In git we trust</h1>
-</div>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/jwbull" class="social-link">
+      <div [inlineSVG]="'/assets/icons/linkedin.svg'" class="social-icon"></div>
+    </a>
+    <a href="https://www.instagram.com/bull.justin" class="social-link">
+      <div [inlineSVG]="'/assets/icons/instagram.svg'" class="social-icon"></div>
+    </a>
+    <a href="https://stackoverflow.com/users/229787/justin-bull" class="social-link">
+      <div [inlineSVG]="'/assets/icons/stackoverflow.svg'" class="social-icon"></div>
+    </a>
+    <a href="https://github.com/jabes" class="social-link">
+      <div [inlineSVG]="'/assets/icons/github.svg'" class="social-icon"></div>
+    </a>
+    <a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=bull.justin@gmail.com&su=Let%27s%20talk" class="social-link">
+      <div [inlineSVG]="'/assets/icons/envelope.svg'" class="social-icon"></div>
+    </a>
+  </div>
 
-<app-github></app-github>
+</header>
+
+<section>
+  <div class="section-heading">
+    <h2>Hashtags for days</h2>
+  </div>
+  <div class="section-body">
+    <app-instagram></app-instagram>
+  </div>
+</section>
+
+<section>
+  <div class="section-heading">
+    <h2>In git we trust</h2>
+  </div>
+  <div class="section-body them-dark">
+    <app-github></app-github>
+  </div>
+</section>
+
+<footer>
+</footer>
