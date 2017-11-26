@@ -5,11 +5,13 @@ import {InlineSVGModule} from 'ng-inline-svg';
 
 import {AppComponent} from './app.component';
 import {InstagramComponent} from './instagram/instagram.component';
+import {GithubComponent} from './github/github.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InstagramComponent
+    InstagramComponent,
+    GithubComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,23 @@
+<div class="github-repos">
+  <div *ngFor="let repo of repos" class="github-repo">
+
+    <a [href]="repo.html_url" class="repo-link">
+
+      <h3>{{ repo.name }}</h3>
+      <p>{{ repo.description }}</p>
+
+      <div class="repo-stats">
+        <div class="repo-stat" *ngIf="repo.language">
+          <div [inlineSVG]="'/assets/icons/book.svg'" class="stat-icon"></div>
+          <span class="stat-count">{{ repo.language }}</span>
+        </div>
+        <div class="repo-stat" *ngIf="repo.stargazers_count > 0">
+          <div [inlineSVG]="'/assets/icons/star.svg'" class="stat-icon"></div>
+          <span class="stat-count">{{ repo.stargazers_count }}</span>
+        </div>
+      </div>
+
+    </a>
+
+  </div>
+</div>
