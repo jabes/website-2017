@@ -5,8 +5,25 @@ import {HttpClient} from '@angular/common/http';
   selector: 'app-root',
   template: `
     <h1>Instagram</h1>
-    <div *ngFor="let instagram_post of instagram_posts">
-      <img [src]="instagram_post.images.standard_resolution.url">
+    <div *ngFor="let post of instagram_posts">
+
+      <div *ngIf="isImage(post)">
+        <a [href]="post.link">
+          <img [src]="post.images.standard_resolution.url">
+        </a>
+      </div>
+
+      <div *ngIf="isVideo(post)">
+        <a [href]="post.link">
+          <video
+            [src]="post.videos.standard_resolution.url"
+            [poster]="post.images.standard_resolution.url"
+            [width]="post.videos.standard_resolution.width"
+            [height]="post.videos.standard_resolution.height"
+            autoplay loop muted></video>
+        </a>
+      </div>
+
     </div>
   `,
   styles: []
@@ -18,6 +35,14 @@ export class AppComponent implements OnInit {
 
   // Inject HttpClient into your component or service.
   constructor(private http: HttpClient) {
+  }
+
+  isImage(post: InstagramPost): boolean {
+    return post.type == 'image';
+  }
+
+  isVideo(post: InstagramPost): boolean {
+    return post.type == 'video';
   }
 
   ngOnInit(): void {
