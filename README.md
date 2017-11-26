@@ -32,3 +32,7 @@ The app will automatically reload if you change any of the source files.
 
 1. Run `npm run server:dev` for a dev server
 2. Navigate to `http://localhost:4200/`
+
+## Screenshots
+
+![](screenshot.png)
