@@ -1,0 +1,33 @@
+<div class="instagram-posts">
+  <div *ngFor="let post of posts" class="instagram-post">
+
+    <a [href]="post.link" class="post-link">
+      <div *ngIf="isImage(post)" class="post-media media-type-image">
+        <img [src]="post.images.standard_resolution.url">
+      </div>
+      <div *ngIf="isVideo(post)" class="post-media media-type-video">
+        <video
+          [src]="post.videos.standard_resolution.url"
+          [poster]="post.images.standard_resolution.url"
+          [width]="post.videos.standard_resolution.width"
+          [height]="post.videos.standard_resolution.height"
+          autoplay loop muted></video>
+      </div>
+    </a>
+
+    <div class="post-overlay">
+      <h3 class="post-caption">{{ post.caption.text }}</h3>
+      <div class="post-stats">
+        <div class="post-stat">
+          <div [inlineSVG]="'/assets/icons/heart.svg'" class="stat-icon"></div>
+          <span class="stat-count">{{ post.likes.count }}</span>
+        </div>
+        <div class="post-stat">
+          <div [inlineSVG]="'/assets/icons/chat.svg'" class="stat-icon"></div>
+          <span class="stat-count">{{ post.comments.count }}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

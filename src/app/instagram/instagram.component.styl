@@ -1,0 +1,69 @@
+.instagram-posts
+  display grid
+  grid-template-columns repeat(3, 1fr)
+  grid-gap 50px
+  padding 0 50px
+  width 100%
+
+.instagram-post
+  position relative
+
+  .post-link
+    display block
+    width 100%
+    height 100%
+
+  .post-media
+    width 100%
+    height 100%
+    overflow hidden
+    img, video
+      display block
+      width 100%
+      height 100%
+      margin 0
+      padding 0
+      object-fit cover
+
+  &:hover .post-overlay
+    display block
+
+  .post-overlay
+    user-select none
+    pointer-events none
+    display none
+    position absolute
+    top 0
+    left 0
+    width 100%
+    height 100%
+    padding 15px 30px
+    background rgba(0, 0, 0, 0.8)
+
+  .post-caption
+    font-size 24px
+    color white
+
+  .post-stats
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%, -50%)
+    text-align center
+
+    .post-stat
+      display inline-block
+      margin 0 1rem
+
+      .stat-count
+        display inline-block
+        vertical-align middle
+        font-size 30px
+        color white
+
+      .stat-icon
+        display inline-block
+        vertical-align middle
+        width 30px
+        height 30px
+        color white
