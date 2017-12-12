@@ -1,5 +1,3 @@
-/* SystemJS module definition */
-
 interface GithubOwner {
   id: number
   login: string

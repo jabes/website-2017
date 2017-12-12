@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +6,7 @@ import {Component} from '@angular/core';
   styleUrls: ['app.component.styl']
 })
 
-export class AppComponent {
-
+export class AppComponent implements OnInit {
   socials = [
     {
       icon: '/assets/icons/linkedin.svg',
@@ -31,6 +30,8 @@ export class AppComponent {
     },
   ];
 
-  constructor() {}
+  ngOnInit() {
+    particlesJS.load('particlesContainer', 'assets/particles.json');
+  }
 
 }

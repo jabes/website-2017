@@ -25,9 +25,13 @@ svg
 
 app-root
   display block
-  +media-xs()
-    padding 20px
-  +media-md()
-    padding 30px
-  +media-lg()
-    padding 50px
+
+.particles-container
+  position fixed
+  top 0
+  left 0
+  z-index -1
+  width 100%
+  height 100%
+  canvas
+    display block

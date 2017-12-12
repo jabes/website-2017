@@ -3,46 +3,52 @@
 @import "~assets/styles/mixins"
 
 header,
+footer,
 section
   display block
   +media-xs()
-    margin-bottom 50px
+    padding 20px
   +media-md()
-    margin-bottom 80px
+    padding 30px
   +media-lg()
-    margin-bottom 120px
+    padding 50px
 
 header
+  display block
+  padding-top 10vw
+  padding-bottom 10vw
+  background url("~assets/images/abstract-triangles.svg") no-repeat center center;
+  background-size fill;
+  color #081D58
 
   h1
     font-size 55px
     font-family 'Spectral SC', serif
     line-height 1
-    color #666
     margin 20px 0
   p
     font-size 22px
-    color #888
     margin 20px 0
 
-section
+.section-heading,
+.section-body
+  +media-xs()
+    margin 20px 0
+  +media-md()
+    margin 30px 0
+  +media-lg()
+    margin 50px 0
 
-  .section-heading,
-  .section-body
-    +media-xs()
-      margin 20px 0
-    +media-md()
-      margin 30px 0
-    +media-lg()
-      margin 50px 0
+.section-heading
+  h2
+    font-size 40px
+    font-family 'Spectral SC', serif
+    line-height 1
+    color #AAA
+    margin 0
 
-  .section-heading
-    h2
-      font-size 40px
-      font-family 'Spectral SC', serif
-      line-height 1
-      color #AAA
-      margin 0
+.github-container
+  background: #EEEEEE
 
 .social-icons
   margin 30px 0
@@ -50,10 +56,10 @@ section
   .social-link
     display inline-block
     font-size 0
-    color red
-    filter grayscale(100%)
+    color black
+    opacity .5
     &:hover
-      filter grayscale(0)
+      opacity 1
     &:not(:last-child)
       margin-right 1rem
 
@@ -68,3 +74,10 @@ section
     +media-lg()
       width 60px
       height 60px
+
+.penguin
+  margin 80px 0
+  width 100%
+  height 100px
+  background url("~assets/images/penguin.svg") no-repeat center center;
+  background-size contain;

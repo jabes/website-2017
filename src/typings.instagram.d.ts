@@ -1,5 +1,3 @@
-/* SystemJS module definition */
-
 interface InstagramUser {
   full_name: string
   profile_picture: string
