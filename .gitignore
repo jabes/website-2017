@@ -5,6 +5,7 @@
 !.editorconfig
 !.gitignore
 
-dist/
+public/
+
 node_modules/
 vendor/
