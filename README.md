@@ -17,6 +17,10 @@ sudo apt-get install -y nodejs
 git clone https://github.com/jabes/website-2017.git
 cd website-2017
 npm install
+composer install
+vagrant box add laravel/homestead
+vagrant plugin install vagrant-hostsupdater
+vagrant up
 ```
 
 ## Production Server
