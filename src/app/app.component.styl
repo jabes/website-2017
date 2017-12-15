@@ -57,9 +57,10 @@ header
     display inline-block
     font-size 0
     color black
-    opacity .5
+    &:not(:hover)
+      filter sepia() saturate(100000%) hue-rotate(210deg) brightness(.4)
     &:hover
-      opacity 1
+      filter drop-shadow(1px 1px 0 rgba(0,0,0,0.5))
     &:not(:last-child)
       margin-right 1rem
 
