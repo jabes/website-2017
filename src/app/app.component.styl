@@ -6,6 +6,7 @@ header,
 footer,
 section
   display block
+  position relative
   +media-xs()
     padding 20px
   +media-md()
@@ -82,3 +83,13 @@ header
   height 100px
   background url("~assets/images/penguin.svg") no-repeat center center;
   background-size contain;
+
+.particles-container
+  position absolute
+  top 0
+  left 0
+  z-index -1
+  width 100%
+  height 100%
+  canvas
+    display block

@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
   ];
 
   ngOnInit() {
-    particlesJS.load('particlesContainer', 'assets/particles.json');
+    particlesJS.load('particlesFooter', 'assets/particles.json');
   }
 
 }
