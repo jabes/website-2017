@@ -6,6 +6,7 @@ header,
 footer,
 section
   display block
+  position relative
   +media-xs()
     padding 20px
   +media-md()
@@ -57,9 +58,10 @@ header
     display inline-block
     font-size 0
     color black
-    opacity .5
+    &:not(:hover)
+      filter sepia() saturate(100000%) hue-rotate(210deg) brightness(.4)
     &:hover
-      opacity 1
+      filter drop-shadow(1px 1px 0 rgba(0,0,0,0.5))
     &:not(:last-child)
       margin-right 1rem
 
@@ -81,3 +83,13 @@ header
   height 100px
   background url("~assets/images/penguin.svg") no-repeat center center;
   background-size contain;
+
+.particles-container
+  position absolute
+  top 0
+  left 0
+  z-index -1
+  width 100%
+  height 100%
+  canvas
+    display block
