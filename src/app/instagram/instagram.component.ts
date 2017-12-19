@@ -29,9 +29,6 @@ export class InstagramComponent implements OnInit {
 
     this.http.get<InstagramResponse>(api_url).subscribe(response => {
       this.posts = response.data;
-      setTimeout(()=>{
-        particlesJS.load('particlesInstagram', 'assets/particles.json');
-      });
     });
 
   }
