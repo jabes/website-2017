@@ -1,10 +1,13 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 
-app.use(express.static('./public'));
+global.appRoot = path.resolve(__dirname);
+
+app.use(express.static(appRoot + '/public'));
 
 app.get('/', (req, res) => {
-  res.sendFile('./public/index.html');
+  res.sendFile(appRoot + '/public/index.html');
 });
 
 app.listen(80);
