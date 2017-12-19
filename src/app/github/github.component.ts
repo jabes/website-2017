@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from "rxjs/Rx";
 
 @Component({
   selector: 'app-github',
@@ -13,12 +14,15 @@ export class GithubComponent implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-
+  getGithubRepos(): Observable<GithubRepo[]> {
     const user = 'jabes';
     const api_url = `https://api.github.com/users/${user}/repos`;
+    return this.http.get<GithubRepo[]>(api_url);
+  }
 
-    this.http.get<GithubRepo[]>(api_url).subscribe(response => {
+  ngOnInit() {
+
+    this.getGithubRepos().subscribe(response => {
       this.repos = response;
     });
 

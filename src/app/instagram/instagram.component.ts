@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-instagram',
@@ -21,13 +22,16 @@ export class InstagramComponent implements OnInit {
     return post.type == 'video';
   }
 
-  ngOnInit() {
-
+  getInstagramPosts(): Observable<InstagramResponse> {
     const user_id = '48623844';
     const access_token = '48623844.3deca28.7ca6d0f3ca014b38a62a6a4aff3b4eb5';
     const api_url = `https://api.instagram.com/v1/users/${user_id}/media/recent?access_token=${access_token}&count=6`;
+    return this.http.get<InstagramResponse>(api_url);
+  }
 
-    this.http.get<InstagramResponse>(api_url).subscribe(response => {
+  ngOnInit() {
+
+    this.getInstagramPosts().subscribe(response => {
       this.posts = response.data;
       for (let i = 0; i < this.posts.length; i++) {
         this.posts[i].caption.text = twemoji.parse(this.posts[i].caption.text);
