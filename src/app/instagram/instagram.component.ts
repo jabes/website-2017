@@ -29,6 +29,9 @@ export class InstagramComponent implements OnInit {
 
     this.http.get<InstagramResponse>(api_url).subscribe(response => {
       this.posts = response.data;
+      for (let i = 0; i < this.posts.length; i++) {
+        this.posts[i].caption.text = twemoji.parse(this.posts[i].caption.text);
+      }
     });
 
   }
