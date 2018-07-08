@@ -18,8 +18,19 @@ export class InstagramComponent implements OnInit {
     return post.type == 'image';
   }
 
+  isCaroursel(post: InstagramPost): boolean {
+      return post.type == 'carousel';
+  }
+
   isVideo(post: InstagramPost): boolean {
     return post.type == 'video';
+  }
+
+  truncateText(text: string): string {
+    const maxChars = 200;
+    const ellipsis = '...';
+    text = text.length > maxChars ? text.substring(0, maxChars) + ellipsis : text;
+    return text;
   }
 
   getInstagramPosts(): Observable<InstagramResponse> {
@@ -34,7 +45,10 @@ export class InstagramComponent implements OnInit {
     this.getInstagramPosts().subscribe(response => {
       this.posts = response.data;
       for (let i = 0; i < this.posts.length; i++) {
-        this.posts[i].caption.text = twemoji.parse(this.posts[i].caption.text);
+        let caption = this.posts[i].caption.text;
+        caption = this.truncateText(caption);
+        caption = twemoji.parse(caption);
+        this.posts[i].caption.text = caption;
       }
     });
 

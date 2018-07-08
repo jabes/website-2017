@@ -10,10 +10,27 @@ interface InstagramImage {
   url: string
 }
 
+interface InstagramImages {
+  thumbnail: InstagramImage
+  low_resolution: InstagramImage
+  standard_resolution: InstagramImage
+}
+
 interface InstagramVideo {
   width: number
   height: number
   url: string
+}
+
+interface InstagramVideos {
+    standard_resolution: InstagramVideo
+    low_bandwidth: InstagramVideo
+    low_resolution: InstagramVideo
+}
+
+interface InstagramCarouselMedia {
+  images: InstagramImages
+  type: string
 }
 
 interface InstagramPost {
@@ -24,17 +41,9 @@ interface InstagramPost {
   user_has_liked: boolean
   user: InstagramUser
 
-  images: {
-    thumbnail: InstagramImage
-    low_resolution: InstagramImage
-    standard_resolution: InstagramImage
-  }
-
-  videos: {
-    standard_resolution: InstagramVideo
-    low_bandwidth: InstagramVideo
-    low_resolution: InstagramVideo
-  }
+  images: InstagramImages
+  videos: InstagramVideos
+  carousel_media: Array<InstagramCarouselMedia>
 
   caption: {
     text: string
