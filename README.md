@@ -16,6 +16,12 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y composer
 ```
 
+[Vagrant](https://www.vagrantup.com/downloads.html) Build portable virtual environments.
+
+```bash
+sudo apt-get install -y vagrant
+```
+
 ## How to install
 
 ```bash
