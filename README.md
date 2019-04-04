@@ -22,6 +22,11 @@ sudo apt-get install -y composer
 sudo apt-get install -y vagrant
 ```
 
+[VirtualBox](https://www.virtualbox.org/wiki/Downloads) Hypervisor for x86 computers.
+```bash
+sudo apt-get install -y virtualbox
+```
+
 ## How to install
 
 ```bash
