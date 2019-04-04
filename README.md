@@ -4,11 +4,16 @@ Personal website where I showcase some of my work.
 
 ## Prerequisites
 
-The app requires [Node.js](https://nodejs.org/en/download/) `6.9.0` or higher to be installed before you can install.
+[Node.js](https://nodejs.org/en/download/) JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ```bash
-curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
+```
+
+[Composer](https://getcomposer.org/download/) Dependency Manager for PHP.
+
+```bash
+sudo apt-get install -y composer
 ```
 
 ## How to install
