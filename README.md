@@ -7,24 +7,24 @@ Personal website where I showcase some of my work.
 [Node.js](https://nodejs.org/en/download/) JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ```bash
-sudo apt-get install -y nodejs
+apt-get install -y nodejs
 ```
 
 [Composer](https://getcomposer.org/download/) Dependency Manager for PHP.
 
 ```bash
-sudo apt-get install -y composer
+apt-get install -y composer
 ```
 
 [Vagrant](https://www.vagrantup.com/downloads.html) Build portable virtual environments.
 
 ```bash
-sudo apt-get install -y vagrant
+apt-get install -y vagrant
 ```
 
 [VirtualBox](https://www.virtualbox.org/wiki/Downloads) Hypervisor for x86 computers.
 ```bash
-sudo apt-get install -y virtualbox
+apt-get install -y virtualbox
 ```
 
 ## How to install
