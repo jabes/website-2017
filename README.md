@@ -25,6 +25,7 @@ sudo apt-get install -y vagrant
 ## How to install
 
 ```bash
+ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
 git clone https://github.com/jabes/website-2017.git
 cd website-2017
 npm install
