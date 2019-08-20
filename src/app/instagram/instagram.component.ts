@@ -35,7 +35,7 @@ export class InstagramComponent implements OnInit {
 
   getInstagramPosts(): Observable<InstagramResponse> {
     const user_id = '48623844';
-    const access_token = '48623844.3deca28.7ca6d0f3ca014b38a62a6a4aff3b4eb5';
+    const access_token = '4911580dcb294876b49a6b82355075e1';
     const api_url = `https://api.instagram.com/v1/users/${user_id}/media/recent?access_token=${access_token}&count=6`;
     return this.http.get<InstagramResponse>(api_url);
   }
