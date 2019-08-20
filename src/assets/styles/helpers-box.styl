@@ -12,7 +12,7 @@ for $value in $display
 $min-max-width = xs sm md lg xl 0 100%
 for $value in $min-max-width
   $key = remove-unit($value)
-  $media-size = lookup('$media-size-' + $key);
+  $media-size = lookup('$media-size-' + $key)
   .min-width-{$key}
     min-width $media-size ? $media-size:$value
   .max-width-{$key}
@@ -21,7 +21,7 @@ for $value in $min-max-width
 $min-max-height = xs sm md lg xl 0 100%
 for $value in $min-max-height
   $key = remove-unit($value)
-  $media-size = lookup('$media-size-' + $key);
+  $media-size = lookup('$media-size-' + $key)
   .min-height-{$key}
     min-height $media-size ? $media-size:$value
   .max-height-{$key}
