@@ -5,7 +5,5 @@
 !.editorconfig
 !.gitignore
 
-public/
-
 node_modules/
 vendor/
