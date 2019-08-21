@@ -1,60 +1,64 @@
-<div *ngIf="!posts" class="instagram-loading">
-  <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
-</div>
+<div *ngIf="posts">
 
-<div class="instagram-posts">
-  <div *ngFor="let post of posts" class="instagram-post">
+  <div class="instagram-posts">
+    <div *ngFor="let post of posts" class="instagram-post">
 
-    <a [href]="post.link" class="post-link">
+      <a [href]="post.link" class="post-link">
 
-      <div *ngIf="isImage(post)" class="post-media media-type-image">
-        <img [src]="post.images.standard_resolution.url">
-      </div>
-
-      <div *ngIf="isCaroursel(post)" class="post-media media-type-carousel">
-        <div class="featured-image">
-          <img [src]="post.carousel_media[0].images.standard_resolution.url">
+        <div *ngIf="isImage(post)" class="post-media media-type-image">
+          <img [src]="post.images.standard_resolution.url">
         </div>
-        <div class="sidebar-images">
-          <div *ngFor="let item of post.carousel_media | slice:1:4; index as i" class="image">
-            <img [src]="item.images.standard_resolution.url" class="{{ i }}">
-            <div *ngIf="i == 2 && post.carousel_media.length > 4" class="view-all-text">
-              +{{ post.carousel_media.length - 4 }} more
+
+        <div *ngIf="isCaroursel(post)" class="post-media media-type-carousel">
+          <div class="featured-image">
+            <img [src]="post.carousel_media[0].images.standard_resolution.url">
+          </div>
+          <div class="sidebar-images">
+            <div *ngFor="let item of post.carousel_media | slice:1:4; index as i" class="image">
+              <img [src]="item.images.standard_resolution.url" class="{{ i }}">
+              <div *ngIf="i == 2 && post.carousel_media.length > 4" class="view-all-text">
+                +{{ post.carousel_media.length - 4 }} more
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div *ngIf="isVideo(post)" class="post-media media-type-video">
-        <video
-          [src]="post.videos.standard_resolution.url"
-          [poster]="post.images.standard_resolution.url"
-          [width]="post.videos.standard_resolution.width"
-          [height]="post.videos.standard_resolution.height"
-          [autoplay]="true"
-          [loop]="true"
-          [muted]="true"></video>
-      </div>
-
-    </a>
-
-    <figure class="post-overlay">
-      <figcaption class="post-caption" [innerHTML]="post.caption.text"></figcaption>
-      <div class="post-stats">
-        <div class="post-stat">
-          <div [inlineSVG]="'/assets/icons/heart.svg'" class="stat-icon"></div>
-          <span class="stat-count">{{ post.likes.count }}</span>
+        <div *ngIf="isVideo(post)" class="post-media media-type-video">
+          <video
+            [src]="post.videos.standard_resolution.url"
+            [poster]="post.images.standard_resolution.url"
+            [width]="post.videos.standard_resolution.width"
+            [height]="post.videos.standard_resolution.height"
+            [autoplay]="true"
+            [loop]="true"
+            [muted]="true"></video>
         </div>
-        <div class="post-stat">
-          <div [inlineSVG]="'/assets/icons/chat.svg'" class="stat-icon"></div>
-          <span class="stat-count">{{ post.comments.count }}</span>
-        </div>
-      </div>
-    </figure>
 
+      </a>
+
+      <figure class="post-overlay">
+        <figcaption class="post-caption" [innerHTML]="post.caption.text"></figcaption>
+        <div class="post-stats">
+          <div class="post-stat">
+            <div [inlineSVG]="'/assets/icons/heart.svg'" class="stat-icon"></div>
+            <span class="stat-count">{{ post.likes.count }}</span>
+          </div>
+          <div class="post-stat">
+            <div [inlineSVG]="'/assets/icons/chat.svg'" class="stat-icon"></div>
+            <span class="stat-count">{{ post.comments.count }}</span>
+          </div>
+        </div>
+      </figure>
+
+    </div>
   </div>
+
+  <div class="view-more-btn">
+    <a href="https://www.instagram.com/bull.justin">VIEW MORE</a>
+  </div>
+
 </div>
 
-<div class="view-more-btn">
-  <a href="https://www.instagram.com/bull.justin">VIEW MORE</a>
+<div *ngIf="!posts" class="instagram-loading">
+  <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
 </div>
