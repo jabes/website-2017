@@ -28,7 +28,7 @@ export class InstagramComponent implements OnInit {
 
   truncateText(text: string): string {
     const maxChars = 120;
-    const ellipsis = '...';
+    const ellipsis = '…';
     text = text.length > maxChars ? text.substring(0, maxChars) + ellipsis : text;
     return text;
   }
@@ -36,7 +36,7 @@ export class InstagramComponent implements OnInit {
   getInstagramPosts(): Observable<InstagramResponse> {
     const user_id = '48623844';
     const access_token = '48623844.3deca28.3ed677d7451643fead352c1b89ef738e';
-    const api_url = `https://api.instagram.com/v1/users/${user_id}/media/recent?access_token=${access_token}&count=20`;
+    const api_url = `https://api.instagram.com/v1/users/${user_id}/media/recent?access_token=${access_token}&count=8`;
     return this.http.get<InstagramResponse>(api_url);
   }
 
