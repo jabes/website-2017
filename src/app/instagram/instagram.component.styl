@@ -3,18 +3,14 @@
 @import "~assets/styles/mixins"
 
 .instagram-posts
+  display grid
+  grid-gap 1em
   +media-xs()
-    display grid
     grid-template-columns repeat(1, 1fr)
-    grid-gap 4vw
   +media-md()
-    display grid
     grid-template-columns repeat(2, 1fr)
-    grid-gap 4vw
   +media-lg()
-    display grid
     grid-template-columns repeat(3, 1fr)
-    grid-gap 4vw
 
 .instagram-post
   position relative
@@ -32,6 +28,7 @@
     width 100%
     height 100%
     overflow hidden
+
     img, video
       display block
       width 100%
@@ -43,9 +40,11 @@
   .media-type-carousel
     position relative
     height 100%
+
     .featured-image
       width 60%
       height 100%
+
     .sidebar-images
       width 40%
       height 100%
@@ -56,10 +55,12 @@
       left auto
       display flex
       flex-direction column
+
       .image
         position relative
         flex auto
         height (100% / 3)
+
     .view-all-text
       width 100%
       height 100%
@@ -73,7 +74,7 @@
       justify-content center
       background-color rgba(0, 0, 0, .75)
       color white
-      font-size 2vw
+      font-size 1.25em
 
   &:hover .post-overlay
     display flex
@@ -81,6 +82,7 @@
 
   .post-overlay
     display none
+    overflow hidden
     position absolute
     top 0
     left 0
@@ -90,95 +92,54 @@
     background rgba(0, 0, 0, 0.8)
     user-select none
     pointer-events none
-    +media-xs()
-      padding 8vw
-    +media-md()
-      padding 4vw
-    +media-lg()
-      padding 3vw
+    padding 6%
 
   .post-caption
     flex 1
+    font-size 1em
     text-align center
     color white
-    +media-xs()
-      font-size 4.5vw
-      margin 5vw 0
-    +media-md()
-      font-size 2.5vw
-      margin 3vw 0
-    +media-lg()
-      font-size 1.5vw
-      margin 2vw 0
 
   .post-stats
     flex 0
     text-align center
     color white
-    +media-xs()
-      margin 5vw 0
-    +media-md()
-      margin 3vw 0
-    +media-lg()
-      margin 2vw 0
 
     .post-stat
       display inline-block
-      +media-xs()
-        margin 0 3vw
-      +media-md()
-        margin 0 2vw
-      +media-lg()
-        margin 0 1vw
+      margin 0 .5em
 
       .stat-count
         display inline-block
         vertical-align middle
-        +media-xs()
-          font-size 6vw
-        +media-md()
-          font-size 3vw
-        +media-lg()
-          font-size 2vw
+        font-size 1em
+        margin 0 .1em
 
       .stat-icon
         display inline-block
         vertical-align middle
-        +media-xs()
-          width 6vw
-          height 6vw
-        +media-md()
-          width 3vw
-          height 3vw
-        +media-lg()
-          width 2vw
-          height 2vw
+        width 1em
+        height 1em
 
 .view-more-btn
   display flex
   align-items center
   justify-content center
-  padding 2vw 0
+  padding 6em 0 3em 0
+
   a
     font-family 'Spectral SC', serif
     display inline-block
-    padding 10px 25px
+    padding .4em .8em
     margin auto
+    font-size 2.2em
     text-decoration none
     background-color white
     color grey
     border 2px solid grey
-    border-radius 6px
+    border-radius .4em
+
     &:hover
       border-color #00688B
       background-color #00BEFE
       color #00688B
-    +media-xs()
-      font-size 5vw
-      margin-top 5vw
-    +media-md()
-      font-size 3vw
-      margin-top 3vw
-    +media-lg()
-      font-size 2vw
-      margin-top 2vw
