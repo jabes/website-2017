@@ -21,19 +21,19 @@
 .instagram-posts
   display flex
   justify-content center
+  flex-wrap wrap
 
 .instagram-post
   position relative
   margin .5em
-
   +media-xs()
-    flex 0 0 calc(100% / 1)
+    flex 0 0 calc(100% / 1 - 1em)
   +media-md()
-    flex 0 0 calc(100% / 2)
+    flex 0 0 calc(100% / 2 - 1em)
   +media-lg()
-    flex 0 0 calc(100% / 3)
+    flex 0 0 calc(100% / 3 - 1em)
   +media-xl()
-    flex 0 0 calc(100% / 4)
+    flex 0 0 calc(100% / 4 - 1em)
 
   .post-link
     display block
