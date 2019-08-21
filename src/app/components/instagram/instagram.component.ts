@@ -19,7 +19,7 @@ export class InstagramComponent implements OnInit {
   }
 
   isCaroursel(post: InstagramPost): boolean {
-      return post.type == 'carousel';
+    return post.type == 'carousel';
   }
 
   isVideo(post: InstagramPost): boolean {
