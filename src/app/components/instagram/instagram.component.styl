@@ -2,6 +2,21 @@
 @import "~assets/styles/variables"
 @import "~assets/styles/mixins"
 
+@keyframes spin
+  100%
+    transform rotate(360deg)
+
+.instagram-loading
+  width 100%
+  text-align center
+
+  .loading-icon
+    display inline-block
+    width 6em
+    height 6em
+    color #888
+    animation spin 1s linear infinite
+
 .instagram-posts
   display grid
   grid-gap 1em
