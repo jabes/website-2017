@@ -9,7 +9,7 @@
   left 0
   width 100%
   height 100%
-  background-color rgba(black, .85)
+  background-color rgba(black, .9)
 
   .close-overlay-button
     display block
@@ -60,6 +60,10 @@
 
 .youtube-video
   position relative
+  border 5px solid rgba(white, .6)
+
+  &:hover
+    border-color white
 
   .play-icon
     position absolute
@@ -77,6 +81,7 @@
     margin 0
     padding 0
     opacity .4
+    transition opacity 250ms;
 
   .video-play-button
     display block
