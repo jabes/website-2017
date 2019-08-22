@@ -31,3 +31,87 @@ app-root
   width 1.25em
   height 1.25em
   marign 0
+
+.button-container
+  display flex
+  align-items center
+  justify-content center
+  padding 6em 0 3em 0
+
+.button
+  overflow hidden
+  position relative
+  display inline-block
+  font-family 'Spectral SC', serif
+  font-size 2.2em
+  color rgba(white, .8)
+  text-shadow 0px -1px 0px rgba(black, .4)
+  text-decoration none
+  line-height 1
+  letter-spacing 0.025em
+  cursor pointer
+  padding .6em .8em
+  border none
+  border-bottom 2px solid
+  border-radius 5px
+
+.button span
+  display block
+  position relative
+  z-index 10
+
+.button:hover
+  color white
+
+.button:active
+  transform translateY(2px)
+
+.button::after,
+.button::before
+  content ''
+  position absolute
+  top 0
+  left calc(-100% - 60px)
+  width calc(100% + 40px)
+  height 100%
+  transform skew(-25deg)
+
+.button::after
+  z-index 0
+  transition left 600ms cubic-bezier(0.86, 0, 0.07, 1) 200ms
+
+.button::before
+  z-index 5
+  transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
+
+.button:hover::after
+  left calc(0% - 20px)
+  transition left 600ms cubic-bezier(0.86, 0, 0.07, 1)
+
+.button:hover::before
+  left calc(0% - 20px)
+  transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
+
+.button.purple
+  background #5851DB
+  border-bottom-color darken(#5851DB, 50%)
+  &::after
+    background lighten(#5851DB, 50%)
+  &::before
+    background #833AB4
+
+.button.gray
+  background #222
+  border-bottom-color #000
+  &::after
+    background #888
+  &::before
+    background #444
+
+.button.red
+  background #F56040
+  border-bottom-color darken(#F56040, 50%)
+  &::after
+    background lighten(#F56040, 50%)
+  &::before
+    background #FD1D1D
