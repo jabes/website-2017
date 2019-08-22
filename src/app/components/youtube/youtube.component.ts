@@ -36,9 +36,20 @@ export class YoutubeComponent implements OnInit {
     for (let i = 0; i < ids.length; i++) {
       let id = ids[i];
       this.videos.push({
+        loaded: false,
         thumbnail: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
         url: `https://www.youtube.com/embed/${id}?autoplay=1`,
       });
+    }
+
+    for (let i = 0; i < this.videos.length; i++) {
+      let scope = this;
+      let video = scope.videos[i];
+      let image = new Image();
+      image.src = video.thumbnail;
+      image.onload = function (this: HTMLElement, ev: Event) {
+        scope.videos[i].loaded = true;
+      };
     }
 
   }

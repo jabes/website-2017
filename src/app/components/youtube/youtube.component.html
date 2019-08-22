@@ -1,9 +1,10 @@
 <div class="youtube-videos">
   <div *ngFor="let video of videos" class="youtube-video">
-    <button (click)="setActiveVideo(video)" class="video-play-button">
+    <button *ngIf="video.loaded" (click)="setActiveVideo(video)" class="video-play-button">
       <img [src]="video.thumbnail" class="video-thumbnail">
       <div [inlineSVG]="'/assets/icons/play.svg'" class="play-icon"></div>
     </button>
+    <div *ngIf="!video.loaded" [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
   </div>
 </div>
 
