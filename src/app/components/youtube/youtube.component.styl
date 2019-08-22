@@ -50,29 +50,43 @@
       border none
 
 .youtube-videos
-  display grid
-  grid-gap 1em
-
-  +media-md()
-    grid-template-columns repeat(1, 1fr)
-  +media-lg()
-    grid-template-columns repeat(2, 1fr)
+  display flex
+  justify-content center
+  flex-wrap wrap
 
 .youtube-video
+  overflow hidden
   position relative
+  max-width 800px
+  margin .5em
   border 5px solid rgba(white, .6)
+
+  +media-md()
+    flex 0 0 calc(100% / 1 - 1em)
+  +media-lg()
+    flex 0 0 calc(100% / 2 - 1em)
+
+  &,
+  & *
+    transition all 200ms
 
   &:hover
     border-color white
+    .play-icon
+      opacity 0
+    .video-thumbnail
+      opacity 1
+      filter grayscale(0)
 
   .play-icon
+    color white
     position absolute
     top 50%
     left 50%
-    transform translate(-50%, -50%)
     width 5em
     height 5em
-    color white
+    transform translate(-50%, -50%)
+    filter drop-shadow(0 1px 0 rgba(black, .75));
 
   .video-thumbnail
     display block
@@ -81,7 +95,7 @@
     margin 0
     padding 0
     opacity .4
-    transition opacity 250ms;
+    filter grayscale(100%)
 
   .video-play-button
     display block
@@ -90,8 +104,3 @@
     padding 0
     border none
     background black
-    &:hover
-      .play-icon
-        display none
-      .video-thumbnail
-        opacity 1
