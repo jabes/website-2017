@@ -26,13 +26,6 @@ export class InstagramComponent implements OnInit {
     return post.type == 'video';
   }
 
-  truncateText(text: string): string {
-    const maxChars = 120;
-    const ellipsis = '…';
-    text = text.length > maxChars ? text.substring(0, maxChars) + ellipsis : text;
-    return text;
-  }
-
   getInstagramPosts(): Observable<InstagramResponse> {
     const user_id = '48623844';
     const access_token = '48623844.3deca28.3ed677d7451643fead352c1b89ef738e';
@@ -46,7 +39,6 @@ export class InstagramComponent implements OnInit {
       this.posts = response.data;
       for (let i = 0; i < this.posts.length; i++) {
         let caption = this.posts[i].caption.text;
-        caption = this.truncateText(caption);
         caption = twemoji.parse(caption);
         this.posts[i].caption.text = caption;
       }

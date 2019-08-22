@@ -127,8 +127,7 @@
       font-size 1.25em
 
   &:hover .post-overlay
-    display flex
-    flex-direction column
+    display block
 
   .post-overlay
     display none
@@ -142,16 +141,33 @@
     background rgba(0, 0, 0, 0.8)
     user-select none
     pointer-events none
-    padding 6%
+    padding 10%
 
   .post-caption
-    flex 1
     font-size 1em
     text-align center
     color white
 
+    svg
+      width 100%
+      height 100%
+      foreignObject > p
+        margin 0
+        font-size 8px
+        line-height 1.35
+        overflow hidden
+        display -webkit-box
+        -webkit-box-orient vertical
+        -webkit-line-clamp 6
+
   .post-stats
-    flex 0
+    position absolute
+    top auto
+    bottom 10%
+    left 0
+    right 0
+    width 100%
+    height auto
     text-align center
     color white
 
@@ -162,11 +178,11 @@
       .stat-count
         display inline-block
         vertical-align middle
-        font-size 1em
+        font-size 1.4em
         margin 0 .1em
 
       .stat-icon
         display inline-block
         vertical-align middle
-        width 1em
-        height 1em
+        width 1.4em
+        height 1.4em
