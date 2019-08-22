@@ -67,6 +67,8 @@
 
 </div>
 
-<div *ngIf="!isLoaded" class="instagram-loading">
-  <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
+<div *ngIf="!isLoaded">
+  <div class="instagram-loading">
+    <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
+  </div>
 </div>
