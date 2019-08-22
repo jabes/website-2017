@@ -10,9 +10,12 @@ import {Observable} from 'rxjs/Rx';
 
 export class InstagramComponent implements OnInit {
 
+  isLoaded: boolean;
   posts: Array<InstagramPost>;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.isLoaded = false;
+  }
 
   isImage(post: InstagramPost): boolean {
     return post.type == 'image';
@@ -33,17 +36,36 @@ export class InstagramComponent implements OnInit {
     return this.http.get<InstagramResponse>(api_url);
   }
 
-  ngOnInit() {
+  parseCaptions() {
+    for (let i = 0; i < this.posts.length; i++) {
+      let caption = this.posts[i].caption.text;
+      caption = twemoji.parse(caption);
+      this.posts[i].caption.text = caption;
+    }
+  }
 
+  preloadImages() {
+    let scope = this;
+    let numLoaded = 0;
+    for (let i = 0; i < scope.posts.length; i++) {
+      let post = scope.posts[i];
+      let image = new Image();
+      image.src = post.images.standard_resolution.url;
+      image.onload = function () {
+        numLoaded++;
+        if (numLoaded === scope.posts.length) {
+          scope.isLoaded = true;
+        }
+      };
+    }
+  }
+
+  ngOnInit() {
     this.getInstagramPosts().subscribe(response => {
       this.posts = response.data;
-      for (let i = 0; i < this.posts.length; i++) {
-        let caption = this.posts[i].caption.text;
-        caption = twemoji.parse(caption);
-        this.posts[i].caption.text = caption;
-      }
+      this.parseCaptions();
+      this.preloadImages();
     });
-
   }
 
 }

@@ -47,7 +47,7 @@ export class YoutubeComponent implements OnInit {
       let video = scope.videos[i];
       let image = new Image();
       image.src = video.thumbnail;
-      image.onload = function (this: HTMLElement, ev: Event) {
+      image.onload = function () {
         scope.videos[i].loaded = true;
       };
     }

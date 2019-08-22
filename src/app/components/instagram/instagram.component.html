@@ -1,4 +1,4 @@
-<div *ngIf="posts">
+<div *ngIf="isLoaded">
 
   <div class="instagram-posts">
     <div *ngFor="let post of posts" class="instagram-post">
@@ -67,6 +67,6 @@
 
 </div>
 
-<div *ngIf="!posts" class="instagram-loading">
+<div *ngIf="!isLoaded" class="instagram-loading">
   <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
 </div>
