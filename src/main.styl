@@ -47,6 +47,7 @@ app-root
   color rgba(white, .8)
   text-shadow 0px -1px 0px rgba(black, .4)
   text-decoration none
+  text-align center
   line-height 1
   letter-spacing 0.025em
   cursor pointer
@@ -55,63 +56,63 @@ app-root
   border-bottom 2px solid
   border-radius 5px
 
-.button span
-  display block
-  position relative
-  z-index 10
+  span
+    display block
+    position relative
+    z-index 10
 
-.button:hover
-  color white
+  &:hover
+    color white
 
-.button:active
-  transform translateY(2px)
+  &:active
+    transform translateY(2px)
 
-.button::after,
-.button::before
-  content ''
-  position absolute
-  top 0
-  left calc(-100% - 60px)
-  width calc(100% + 40px)
-  height 100%
-  transform skew(-25deg)
-
-.button::after
-  z-index 0
-  transition left 600ms cubic-bezier(0.86, 0, 0.07, 1) 200ms
-
-.button::before
-  z-index 5
-  transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
-
-.button:hover::after
-  left calc(0% - 20px)
-  transition left 600ms cubic-bezier(0.86, 0, 0.07, 1)
-
-.button:hover::before
-  left calc(0% - 20px)
-  transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
-
-.button.purple
-  background #5851DB
-  border-bottom-color darken(#5851DB, 50%)
-  &::after
-    background lighten(#5851DB, 50%)
+  &::after,
   &::before
-    background #833AB4
+    content ''
+    position absolute
+    top 0
+    left calc(-100% - 60px)
+    width calc(100% + 40px)
+    height 100%
+    transform skew(-25deg)
 
-.button.gray
-  background #222
-  border-bottom-color #000
   &::after
-    background #888
-  &::before
-    background #444
+    z-index 0
+    transition left 600ms cubic-bezier(0.86, 0, 0.07, 1) 200ms
 
-.button.red
-  background #F56040
-  border-bottom-color darken(#F56040, 50%)
-  &::after
-    background lighten(#F56040, 50%)
   &::before
-    background #FD1D1D
+    z-index 5
+    transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
+
+  &:hover::after
+    left calc(0% - 20px)
+    transition left 600ms cubic-bezier(0.86, 0, 0.07, 1)
+
+  &:hover::before
+    left calc(0% - 20px)
+    transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
+
+  &.purple
+    background #5851DB
+    border-bottom-color darken(#5851DB, 50%)
+    &::after
+      background lighten(#5851DB, 50%)
+    &::before
+      background #833AB4
+
+  &.gray
+    background #222
+    border-bottom-color #000
+    &::after
+      background #888
+    &::before
+      background #444
+
+  &.red
+    background #F56040
+    border-bottom-color darken(#F56040, 50%)
+    &::after
+      background lighten(#F56040, 50%)
+    &::before
+      background #FD1D1D
