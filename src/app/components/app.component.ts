@@ -41,7 +41,18 @@ export class AppComponent implements OnInit {
   ];
 
   ngOnInit() {
-    particlesJS.load('particlesFooter', 'assets/particles.json');
+    particlesJS.load('footerBgContainer', 'assets/particles.json');
+  }
+
+  ngAfterViewInit() {
+    VANTA.WAVES({
+      el: "#headerBgContainer",
+      color: 0x1e4466,
+      shininess: 20.00,
+      waveHeight: 10.00,
+      waveSpeed: 0.75,
+      zoom: 1,
+    });
   }
 
 }
