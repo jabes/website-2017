@@ -9,6 +9,7 @@ import {YoutubeComponent} from './components/youtube/youtube.component';
 import {GithubComponent} from './components/github/github.component';
 
 import {SafeUrlPipe} from './pipes/safe-url.pipe';
+import {SafeHtmlPipe} from './pipes/safe-html.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {SafeUrlPipe} from './pipes/safe-url.pipe';
     YoutubeComponent,
     GithubComponent,
     SafeUrlPipe,
+    SafeHtmlPipe,
   ],
   imports: [
     BrowserModule,

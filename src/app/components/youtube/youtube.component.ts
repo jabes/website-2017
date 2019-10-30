@@ -1,25 +1,42 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-youtube',
   templateUrl: 'youtube.component.html',
-  styleUrls: ['youtube.component.styl']
+  styleUrls: ['youtube.component.styl'],
+  // https://stackoverflow.com/questions/36265026/angular-2-innerhtml-styling
+  encapsulation: ViewEncapsulation.None,
 })
 
 export class YoutubeComponent implements OnInit {
 
   videos: Array<YoutubeVideo>;
-  activeVideoSrc: string;
+  activeVideo: YoutubeVideo;
 
-  constructor(public sanitizer: DomSanitizer) {}
+  constructor(
+    private http: HttpClient,
+    public sanitizer: DomSanitizer
+  ) {}
 
   setActiveVideo(video: YoutubeVideo) {
-    this.activeVideoSrc = video.url;
+    this.activeVideo = video;
   }
 
   clearActiveVideo() {
-    delete this.activeVideoSrc;
+    delete this.activeVideo;
+  }
+
+  getYoutubeVideoInfo(video_id: string): Observable<YoutubeResponse> {
+    const api_key = 'AIzaSyAGac0L1t9dlIw8U229C1GkFNa2Sh4oSXc';
+    const api_url = `https://www.googleapis.com/youtube/v3/videos?id=${video_id}&key=${api_key}&part=snippet,player,statistics`;
+    return this.http.get<YoutubeResponse>(api_url);
+  }
+
+  getVideoViews(video: YoutubeVideo): string {
+    return `&#128065; ${video.statistics.viewCount}`;
   }
 
   ngOnInit() {
@@ -28,29 +45,14 @@ export class YoutubeComponent implements OnInit {
       'yxnSeF9W-0s',
       'P_E2fZLOjek',
       '-uo1fnFTNds',
-      'AXI5WFLir7M'
+      'AXI5WFLir7M',
     ];
 
     this.videos = [];
 
-    for (let i = 0; i < ids.length; i++) {
-      let id = ids[i];
-      this.videos.push({
-        loaded: false,
-        thumbnail: `https://img.youtube.com/vi/${id}/maxresdefault.jpg`,
-        url: `https://www.youtube.com/embed/${id}?autoplay=1`,
-      });
-    }
-
-    for (let i = 0; i < this.videos.length; i++) {
-      let scope = this;
-      let video = scope.videos[i];
-      let image = new Image();
-      image.src = video.thumbnail;
-      image.onload = function () {
-        scope.videos[i].loaded = true;
-      };
-    }
+    this.getYoutubeVideoInfo(ids.join(',')).subscribe(response => {
+      this.videos = response.items;
+    });
 
   }
 }

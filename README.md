@@ -60,7 +60,14 @@ The app will automatically reload if you change any of the source files.
 
 ## Update Github Pages Branch
 
+There is probably a better solution than this...
+Delete the existing branch because updates are rejected otherwise.
+Then push the public build folder to the new branch.
+Make sure to set the custom domain setting on Github.
+
 ```bash
+git branch -d gh-pages
+git push origin --delete gh-pages
 git subtree push --prefix public origin gh-pages
 ```
 

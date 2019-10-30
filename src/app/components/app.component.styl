@@ -63,9 +63,10 @@ header
   background-size 50px
 
 .youtube-container
-  background-color #333
+  background linear-gradient(#444,#222)
   .section-heading h2
     color #eee
+    text-shadow 1px 1px black
 
 .github-container
   background-color #eee
@@ -80,7 +81,7 @@ header
     &:not(:hover)
       filter brightness(0) invert(1)
     &:hover
-      filter drop-shadow(1px 1px 0 rgba(0, 0, 0, 0.5))
+      filter drop-shadow(1px 1px 0 rgba(0,0,0,0.5))
     &:not(:last-child)
       margin-right 1rem
 
@@ -115,6 +116,6 @@ header
 
 .header-bg-container-overlay
   background linear-gradient(
-    rgba(0,0,0,0.1),
+    rgba(0,0,0,0),
     rgba(0,0,0,0.5)
   )

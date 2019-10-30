@@ -48,7 +48,7 @@
     max-width 1440px
     aspect-ratio(16, 9)
 
-    .video-frame
+    iframe
       position absolute
       top 0
       left 0
@@ -65,27 +65,24 @@
 .youtube-video
   overflow hidden
   position relative
-  max-width 800px
-  margin .5em
-  border 5px solid rgba(white, .6)
-  aspect-ratio(16, 9)
+  max-width 600px
+  margin 1.5em .5em
+  opacity 0
+  animation fadeIn 250ms linear forwards
+
+  &:nth-child(1)
+    animation-delay calc(100ms * 1)
+  &:nth-child(2)
+    animation-delay calc(100ms * 2)
+  &:nth-child(3)
+    animation-delay calc(100ms * 3)
+  &:nth-child(4)
+    animation-delay calc(100ms * 4)
 
   +media-xs()
     flex 0 0 calc(100% / 1 - 1em)
   +media-lg()
     flex 0 0 calc(100% / 2 - 1em)
-
-  &,
-  & *
-    transition all 200ms
-
-  &:hover
-    border-color white
-    .play-icon
-      opacity 0
-    .video-thumbnail
-      opacity 1
-      filter grayscale(0)
 
   .play-icon
     color white
@@ -95,42 +92,49 @@
     width 5em
     height 5em
     transform translate(-50%, -50%)
-    filter drop-shadow(0 1px 0 rgba(black, .75));
+    filter drop-shadow(0 1px 0 rgba(black, .75))
+    opacity 0
 
   .video-thumbnail
-    position absolute
-    top 0
-    left 0
     display block
     width 100%
-    height 100%
     object-fit cover
     margin 0
     padding 0
-    opacity .5
-    filter grayscale(100%)
+    aspect-ratio(16, 9)
+    transition opacity 250ms
 
   .video-play-button
+    position relative
     display block
-    width 100%
-    height 100%
-    margin 0
+    margin .5em 0
     padding 0
     border none
     background black
     cursor pointer
-    opacity 0
-    animation fadeIn 250ms linear forwards
 
-  .loading-icon
-    z-index 10
-    display block
-    width 5em
-    height 5em
-    position absolute
-    top 50%
-    left 50%
-    margin-top -2.5em
-    margin-left -2.5em
-    animation spin 1s linear infinite
-    color #888
+    &:hover
+      .play-icon
+        animation fadeIn 250ms linear forwards
+        animation-delay 150ms
+      .video-thumbnail
+        filter grayscale(100%)
+        opacity 0.4
+
+  .video-title
+  .video-description
+  .video-stats
+    margin .5em 0
+
+  .video-title
+    color #999
+
+  .video-description
+  .video-stats
+    color #777
+
+  .video-description
+    overflow hidden
+    display -webkit-box
+    -webkit-line-clamp 3
+    -webkit-box-orient vertical

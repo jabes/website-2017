@@ -1,21 +1,17 @@
 <div class="youtube-videos">
   <div *ngFor="let video of videos" class="youtube-video">
-    <button *ngIf="video.loaded" (click)="setActiveVideo(video)" class="video-play-button">
-      <img [src]="video.thumbnail" class="video-thumbnail">
+    <button (click)="setActiveVideo(video)" class="video-play-button">
+      <img [src]="video.snippet.thumbnails.maxres.url" class="video-thumbnail"/>
       <div [inlineSVG]="'/assets/icons/play.svg'" class="play-icon"></div>
     </button>
-    <div *ngIf="!video.loaded" [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
+    <h3 class="video-title">{{ video.snippet.title }}</h3>
+    <p class="video-description">{{ video.snippet.description }}</p>
+    <span class="video-stats" [innerHTML]="getVideoViews(video) | safeHtml"></span>
   </div>
 </div>
 
-<div *ngIf="activeVideoSrc != undefined" (click)="clearActiveVideo()" class="youtube-overlay">
-  <div class="overlay-body">
-    <iframe
-      [src]="activeVideoSrc | safeUrl"
-      class="video-frame"
-      frameBorder="0"
-      allowFullScreen></iframe>
-  </div>
+<div *ngIf="activeVideo != undefined" (click)="clearActiveVideo()" class="youtube-overlay">
+  <div class="overlay-body" [innerHTML]="activeVideo.player.embedHtml | safeHtml"></div>
   <button (click)="clearActiveVideo()" class="close-overlay-button">
     <div [inlineSVG]="'/assets/icons/close.svg'" class="close-icon"></div>
   </button>
