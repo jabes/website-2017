@@ -4,7 +4,7 @@
   <p>This is a showcase of my work and interests.</p>
 
   <div class="social-icons">
-    <a *ngFor="let social of socials" [href]="social.url" class="social-link" target="_blank">
+    <a *ngFor="let social of socials" [href]="social.url" title="{{ social.label }}" class="social-link" target="_blank">
       <div [inlineSVG]="social.icon" class="social-icon"></div>
     </a>
   </div>
