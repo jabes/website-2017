@@ -7,31 +7,35 @@ Personal website where I showcase some of my work.
 [Node.js](https://nodejs.org/en/download/) JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ```bash
-apt-get install -y nodejs
+sudo apt-get install nodejs
+sudo pacman -S nodejs
 ```
 
 [Composer](https://getcomposer.org/download/) Dependency Manager for PHP.
 
 ```bash
-apt-get install -y composer
+sudo apt-get install composer
+sudo pacman -S composer
 ```
 
 [Vagrant](https://www.vagrantup.com/downloads.html) Build portable virtual environments.
 
 ```bash
-apt-get install -y vagrant
+sudo apt-get install vagrant
+sudo pacman -S vagrant
 ```
 
 [VirtualBox](https://www.virtualbox.org/wiki/Downloads) Hypervisor for x86 computers.
+
 ```bash
-apt-get install -y virtualbox
+sudo apt-get install virtualbox
+sudo pacman -S virtualbox
 ```
 
-## How to install
+## How To Install
 
 ```bash
-ssh-keygen -f ~/.ssh/id_rsa -t rsa -N ''
-git clone https://github.com/jabes/website-2017.git
+git clone git@github.com:jabes/website-2017.git
 cd website-2017
 npm install
 composer install
@@ -47,12 +51,18 @@ This will bind to all available addresses `0.0.0.0` on port `80`.
 1. First build from source `npm run build:prod`
 2. Then run the http server `npm run server:prod`
 
-## Development server
+## Development Server
 
 The app will automatically reload if you change any of the source files.
 
 1. Run `npm run server:dev` for a dev server
 2. Navigate to `http://localhost:4200/`
+
+## Update Github Pages Branch
+
+```bash
+git subtree push --prefix public origin gh-pages
+```
 
 ## Screenshots
 
