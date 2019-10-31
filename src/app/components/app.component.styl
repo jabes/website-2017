@@ -2,8 +2,14 @@
 @import "~assets/styles/variables"
 @import "~assets/styles/mixins"
 
-header,
-footer,
+@keyframes bounce
+  from
+    transform translateY(0)
+  to
+    transform translateY(-20px)
+
+header
+footer
 section
   display block
   position relative
@@ -17,21 +23,48 @@ section
     padding 50px
 
 header
-  display block
-  padding-top 10%
-  padding-bottom 10%
   color white
+  +media-xs()
+    display block
+    text-align center
+    min-height 100vh
+  +media-lg()
+    display flex
+    flex-direction row
+    align-items center
+    text-align left
+    justify-content center
+    min-height 0
+    padding-top 10%
+    padding-bottom 10%
 
   h1
-    font-size 5em
     font-family 'Spectral SC', serif
     line-height 1
-    margin 20px 0
-  p
-    font-size 2em
-    margin 20px 0
+    margin 0
+    +media-xs()
+      font-size 3em
+      margin-bottom 20px
+    +media-md()
+      font-size 4em
+      margin-bottom 30px
+    +media-lg()
+      font-size 5em
+      margin-bottom 40px
 
-.section-heading,
+  p
+    margin 0
+    +media-xs()
+      font-size 1.25em
+      margin-bottom 20px
+    +media-md()
+      font-size 1.75em
+      margin-bottom 30px
+    +media-lg()
+      font-size 2em
+      margin-bottom 40px
+
+.section-heading
 .section-body
   +media-xs()
     margin 20px 0
@@ -42,13 +75,52 @@ header
 
 .section-heading
   h2
-    font-size 3.5em
     font-family 'Spectral SC', serif
     line-height 1
     text-align center
     color #666
     margin 0
-    margin-bottom 1.5em
+
+    +media-xs()
+      font-size 2.5em
+      margin-bottom 20px
+    +media-md()
+      font-size 3em
+      margin-bottom 40px
+    +media-lg()
+      font-size 3.5em
+      margin-bottom 60px
+
+    span.heading-sm
+      display block
+      font-size 50%
+    span.heading-md
+      display block
+      font-size 75%
+    span.heading-lg
+      display block
+      font-size 100%
+  
+  p
+    font-family 'Spectral SC', serif
+    line-height 1
+    text-align center
+    color #888
+    margin 0
+
+    +media-xs()
+      font-size 1.25em
+      margin-top -10px
+      margin-bottom 20px
+    +media-md()
+      font-size 1.5em
+      margin-top -30px
+      margin-bottom 40px
+    +media-lg()
+      font-size 1.75em
+      margin-top -50px
+      margin-bottom 60px
+
   a
     display inline-block
     color inherit
@@ -104,8 +176,37 @@ header
   background image-url("penguin.svg") no-repeat center center
   background-size contain
 
-.header-bg-container,
-.header-bg-container-overlay,
+.avatar
+  border-radius 100%
+  width 200px
+  height 200px
+
+.page-down-icon
+  position absolute
+  bottom 50px
+  left 50%
+  width 40px
+  height 40px
+  margin-left -20px
+  animation bounce 1s
+  animation-direction alternate
+  animation-iteration-count infinite
+  +media-lg()
+    display none
+
+.header-left-side
+  +media-xs()
+    margin-bottom 40px
+  +media-lg()
+    flex 0
+
+.header-right-side
+  +media-lg()
+    flex auto
+    padding-left 50px
+
+.header-bg-container
+.header-bg-container-overlay
 .footer-bg-container
   position absolute
   top 0
@@ -119,3 +220,12 @@ header
     rgba(0,0,0,0),
     rgba(0,0,0,0.5)
   )
+
+.laurel-leaves-left
+.laurel-leaves-right
+  display inline-block
+  vertical-align middle
+  width 40px
+
+.laurel-leaves-right
+  transform scaleX(-1)

@@ -33,11 +33,6 @@ export class AppComponent implements OnInit {
       url: 'https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=bull.justin@gmail.com&su=Let%27s%20talk',
       label: 'Send Me A Message',
     },
-    {
-      icon: '/assets/icons/resume.svg',
-      url: '/assets/docs/resume.pdf',
-      label: 'See My Latest Resume',
-    },
   ];
 
   ngOnInit() {

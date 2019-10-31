@@ -1,22 +1,32 @@
 <header>
 
-  <h1>Justin Bull</h1>
-  <p>This is a showcase of my work and interests.</p>
+  <div class="header-left-side">
+      <img class="avatar" src="/assets/images/avatar.jpg"/>
+  </div>
 
-  <div class="social-icons">
-    <a *ngFor="let social of socials" [href]="social.url" title="{{ social.label }}" class="social-link" target="_blank">
-      <div [inlineSVG]="social.icon" class="social-icon"></div>
-    </a>
+  <div class="header-right-side">
+    <h1>Justin Bull</h1>
+    <p>A showcase of my work and interests.</p>
+    <div class="social-icons">
+      <a *ngFor="let social of socials" [href]="social.url" title="{{ social.label }}" class="social-link" target="_blank">
+        <div [inlineSVG]="social.icon" class="social-icon"></div>
+      </a>
+    </div>
   </div>
 
   <div id="headerBgContainer" class="header-bg-container"></div>
-  <div class="header-bg-container-overlay"></div>
+  <div class="header-bg-container-overlay">
+    <div [inlineSVG]="'/assets/icons/arrow-down.svg'" class="page-down-icon"></div>
+  </div>
 
 </header>
 
 <section class="instagram-container">
   <div class="section-heading">
-    <h2>I keep losing focus</h2>
+    <h2>
+      <span class="heading-lg">If I Could Tell My Story In Words</span>
+      <span class="heading-sm">I Wouldn't Need To Lug Around This Camera</span>
+    </h2>
   </div>
   <div class="section-body">
     <app-instagram></app-instagram>
@@ -25,7 +35,11 @@
 
 <section class="youtube-container">
   <div class="section-heading">
-    <h2>Short Clips</h2>
+    <h2>
+      <div [inlineSVG]="'/assets/icons/laurel-leaves.svg'" class="laurel-leaves-left"></div>
+      Haven't Won An Award.. Yet
+      <div [inlineSVG]="'/assets/icons/laurel-leaves.svg'" class="laurel-leaves-right"></div>
+    </h2>
   </div>
   <div class="section-body">
     <app-youtube></app-youtube>
@@ -35,6 +49,7 @@
 <section class="github-container">
   <div class="section-heading">
     <h2>Commit early, commit often</h2>
+    <p>A collection of the work I'm most proud of.</p>
   </div>
   <div class="section-body them-dark">
     <app-github></app-github>
