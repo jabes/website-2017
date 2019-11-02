@@ -35,11 +35,13 @@
 
 <section class="youtube-container">
   <div class="section-heading">
-    <h2>
-      <div [inlineSVG]="'/assets/icons/laurel-leaves.svg'" class="laurel-leaves-left"></div>
-      Haven't Won An Award.. Yet
-      <div [inlineSVG]="'/assets/icons/laurel-leaves.svg'" class="laurel-leaves-right"></div>
-    </h2>
+    <div class="laurel-leaves-outer">
+      <div class="laurel-leaves-inner">
+        <div [inlineSVG]="'/assets/icons/laurel-leaves.svg'" class="laurel-leaves-left"></div>
+        <h2>Short Clips</h2>
+        <div [inlineSVG]="'/assets/icons/laurel-leaves.svg'" class="laurel-leaves-right"></div>
+      </div>
+    </div>
   </div>
   <div class="section-body">
     <app-youtube></app-youtube>
@@ -48,7 +50,10 @@
 
 <section class="github-container">
   <div class="section-heading">
-    <h2>Commit early, commit often</h2>
+    <h2>
+      <span class="text-group">Commit early,</span>
+      <span class="text-group">commit often</span>
+    </h2>
     <p>A collection of the work I'm most proud of.</p>
   </div>
   <div class="section-body them-dark">

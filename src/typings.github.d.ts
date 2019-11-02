@@ -28,3 +28,28 @@ interface GithubRepo {
   forks_count: number
   open_issues_count: number
 }
+
+interface GithubRepoReadme {
+  name: string
+  path: string
+  sha: string
+  size: number
+  url: string
+  html_url: string
+  git_url: string
+  download_url: string
+  type: string
+  content: string
+  encoding: string
+}
+
+interface CustomGithubRepoReadme {
+  heading: string
+  introduction: string
+  screenshot: string
+}
+
+interface GithubObject {
+  repo: GithubRepo
+  readme: CustomGithubRepoReadme
+}

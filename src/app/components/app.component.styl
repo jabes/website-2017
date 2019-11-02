@@ -198,6 +198,7 @@ header
   +media-xs()
     margin-bottom 40px
   +media-lg()
+    margin-bottom 0
     flex 0
 
 .header-right-side
@@ -221,11 +222,43 @@ header
     rgba(0,0,0,0.5)
   )
 
+.laurel-leaves-outer
+  display flex
+  justify-content center
+  align-items center
+  +media-xs()
+    margin-bottom 20px
+  +media-md()
+    margin-bottom 40px
+  +media-lg()
+    margin-bottom 60px
+
+.laurel-leaves-inner
+  display inline-block
+  position relative
+  padding 0 80px
+  color white
+
+  h2
+    margin 0
+
 .laurel-leaves-left
 .laurel-leaves-right
-  display inline-block
-  vertical-align middle
-  width 40px
+  width = 133.6px
+  height = 295.5px
+  scale = 3.5
+  width "calc(%s / %s)" % (width scale)
+  height "calc(%s / %s)" % (height scale)
+  margin-top "calc(%s / %s/ 2 * -1)" % (height scale)
+  position absolute
+  top 50%
+
+.laurel-leaves-left
+  left 0
 
 .laurel-leaves-right
+  right 0
   transform scaleX(-1)
+
+.text-group
+  display inline-block

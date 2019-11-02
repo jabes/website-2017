@@ -1,23 +1,23 @@
 <div class="github-repos">
-  <div *ngFor="let repo of repos" class="github-repo">
+  <div *ngFor="let githubObject of githubObjects" class="github-repo">
 
-    <a [href]="repo.html_url" class="repo-link">
-
-      <h3>{{ repo.name }}</h3>
-      <p>{{ repo.description }}</p>
-
-      <div class="repo-stats">
-        <div class="repo-stat" *ngIf="repo.language">
-          <div [inlineSVG]="'/assets/icons/book.svg'" class="stat-icon"></div>
-          <span class="stat-count">{{ repo.language }}</span>
-        </div>
-        <div class="repo-stat" *ngIf="repo.stargazers_count > 0">
-          <div [inlineSVG]="'/assets/icons/star.svg'" class="stat-icon"></div>
-          <span class="stat-count">{{ repo.stargazers_count }}</span>
-        </div>
-      </div>
-
+    <a [href]="githubObject.repo.html_url" class="repo-link">
+      <img [src]="githubObject.readme.screenshot" />
     </a>
+
+    <h3>{{ githubObject.readme.heading }}</h3>
+    <div [innerHTML]="githubObject.readme.introduction | safeHtml"></div>
+
+    <div class="repo-stats">
+      <div class="repo-stat" *ngIf="githubObject.repo.language">
+        <div [inlineSVG]="'/assets/icons/book.svg'" class="stat-icon"></div>
+        <span class="stat-count">{{ githubObject.repo.language }}</span>
+      </div>
+      <div class="repo-stat" *ngIf="githubObject.repo.stargazers_count > 0">
+        <div [inlineSVG]="'/assets/icons/star.svg'" class="stat-icon"></div>
+        <span class="stat-count">{{ githubObject.repo.stargazers_count }}</span>
+      </div>
+    </div>
 
   </div>
 </div>

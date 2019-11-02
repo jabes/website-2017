@@ -3,34 +3,39 @@
 @import "~assets/styles/mixins"
 
 .github-repos
-  +media-xs()
-    display grid
-    grid-template-columns repeat(1, 1fr)
-    grid-gap 20px
-  +media-md()
-    display grid
-    grid-template-columns repeat(2, 1fr)
-    grid-gap 30px
-  +media-lg()
-    display grid
-    grid-template-columns repeat(3, 1fr)
-    grid-gap 50px
+  display flex
+  justify-content center
+  flex-wrap wrap
 
-.repo-link
-  display block
-  text-decoration none
-  &:hover
-    transform translateY(-2px)
+.github-repo
+  margin .5em
+  +media-xs()
+    flex 0 0 calc(100% / 1 - 1em)
+  +media-md()
+    flex 0 0 calc(100% / 2 - 1em)
+
+  img
+    display block
+    width 100%
 
   h3
     font-size 1.8em
-    color #4078c0
+    color #444
     margin 10px 0
 
   p
     font-size 1.4em
-    color #767676
+    color #666
     margin 10px 0
+
+
+.repo-link
+  display block
+  margin-bottom 10px
+  border 3px solid transparent
+
+  &:hover
+    border-color #52a0ad
 
 .repo-stats
   margin 10px 0
@@ -43,12 +48,12 @@
     .stat-count
       display inline-block
       vertical-align middle
-      font-size 1.25em
-      color #c9510c
+      font-size 1em
+      color #52a0ad
 
     .stat-icon
       display inline-block
       vertical-align middle
-      width 1.25em
-      height 1.25em
-      color #c9510c
+      width 1em
+      height 1em
+      color #52a0ad
