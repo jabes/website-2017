@@ -8,6 +8,10 @@
   to
     transform translateY(-20px)
 
+@keyframes spin
+  100%
+    transform rotate(360deg)
+
 header
 footer
 section
@@ -39,30 +43,29 @@ header
     padding-bottom 10%
 
   h1
-    font-family 'Quicksand', sans-serif
     line-height 1
     margin 0
     +media-xs()
       font-size 3em
-      margin-bottom 20px
+      margin-bottom 10px
     +media-md()
       font-size 4em
-      margin-bottom 30px
+      margin-bottom 15px
     +media-lg()
       font-size 5em
-      margin-bottom 40px
+      margin-bottom 20px
 
   p
     margin 0
     +media-xs()
       font-size 1.25em
-      margin-bottom 20px
+      margin-bottom 10px
     +media-md()
       font-size 1.75em
-      margin-bottom 30px
+      margin-bottom 15px
     +media-lg()
       font-size 2em
-      margin-bottom 40px
+      margin-bottom 20px
 
 .section-heading
 .section-body
@@ -75,9 +78,9 @@ header
 
 .section-heading
   h2
-    font-family 'Quicksand', sans-serif
     line-height 1
     text-align center
+    text-transform uppercase
     color #666
     margin 0
 
@@ -102,7 +105,6 @@ header
       font-size 100%
   
   p
-    font-family 'Quicksand', sans-serif
     line-height 1
     text-align center
     color #888

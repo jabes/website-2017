@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from "rxjs/Rx";
 
 @Component({
@@ -10,9 +10,19 @@ import {Observable} from "rxjs/Rx";
 
 export class GithubComponent implements OnInit {
 
+  isLoaded: boolean;
+  isError: boolean;
+  errorObject: HttpErrorResponse;
   githubObjects: Array<GithubObject>;
+  repoKeys: Array<string>;
 
   constructor(private http: HttpClient) {}
+
+  handleError(error: HttpErrorResponse) {
+    this.isError = true;
+    this.errorObject = error;
+    console.log(error);
+  }
 
   getRepo(repo: string): Observable<GithubRepo> {
     const api_url = `https://api.github.com/repos/jabes/${repo}`;
@@ -74,23 +84,31 @@ export class GithubComponent implements OnInit {
         },
       });
 
-    });
+      if (this.repoKeys.length === this.githubObjects.length) {
+        this.isLoaded = true;
+      }
+
+    }, error => this.handleError(error));
 
   }
 
   ngOnInit() {
 
+    this.isLoaded = false;
+    this.isError = false;
     this.githubObjects = [];
-
-    const repoKeys = [
+    this.repoKeys = [
       'terrace',
       'pinup',
       'tofu',
       'snap-touch',
     ];
 
-    repoKeys.forEach(repoKey => {
-      this.getRepoReadme(repoKey).subscribe(response => this.parseRepoReadme(response));
+    this.repoKeys.forEach(repoKey => {
+      this.getRepoReadme(repoKey).subscribe(
+        response => this.parseRepoReadme(response),
+        error => this.handleError(error)
+      )
     });
 
   }
