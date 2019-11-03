@@ -107,7 +107,8 @@
   .video-play-button
     position relative
     display block
-    margin .5em 0
+    margin 0
+    margin-bottom 20px
     padding 0
     border none
     background black
@@ -127,14 +128,24 @@
     margin .5em 0
 
   .video-title
-    color #999
+    color #BBB
+    font-size 1.5em
+    text-transform uppercase
 
   .video-description
-  .video-stats
-    color #777
-
-  .video-description
+    color #888
     overflow hidden
     display -webkit-box
     -webkit-line-clamp 3
     -webkit-box-orient vertical
+
+  .video-stats
+    color #BBB
+    .eye-icon
+      width 25px
+      display inline-block
+      vertical-align middle
+      margin-right 5px
+    .stat-views
+      font-size 1.25em
+      vertical-align middle

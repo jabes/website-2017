@@ -8,11 +8,17 @@
   flex-wrap wrap
 
 .github-repo
-  margin .5em
   +media-xs()
     flex 0 0 calc(100% / 1 - 1em)
+    border-bottom 1px solid #CCC
+    padding-bottom 20px
+    &:not(:last-child)
+      margin-bottom 30px
   +media-md()
     flex 0 0 calc(100% / 2 - 1em)
+    border none
+    margin .5em
+    padding 0
 
   img
     display block
@@ -27,7 +33,6 @@
     font-size 1.4em
     color #666
     margin 10px 0
-
 
 .repo-link
   display block

@@ -6,7 +6,10 @@
     </button>
     <h3 class="video-title">{{ video.snippet.title }}</h3>
     <p class="video-description">{{ video.snippet.description }}</p>
-    <span class="video-stats" [innerHTML]="getVideoViews(video) | safeHtml"></span>
+    <div class="video-stats">
+      <div [inlineSVG]="'/assets/icons/eye.svg'" class="eye-icon"></div>
+      <span class="stat-views">{{ video.statistics.viewCount }}</span>
+    </div>
   </div>
 </div>
 
@@ -18,7 +21,7 @@
 </div>
 
 <div class="button-container">
-  <a href="https://www.youtube.com/user/Jabess88/videos" class="button red">
+  <a href="https://www.youtube.com/user/Jabess88/videos" class="button theme-light">
     <span>SEE MORE VIDEOS</span>
   </a>
 </div>

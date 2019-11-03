@@ -35,10 +35,6 @@ export class YoutubeComponent implements OnInit {
     return this.http.get<YoutubeResponse>(api_url);
   }
 
-  getVideoViews(video: YoutubeVideo): string {
-    return `&#128065; ${video.statistics.viewCount}`;
-  }
-
   ngOnInit() {
 
     const ids = [
