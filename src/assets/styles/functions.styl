@@ -66,8 +66,14 @@ calc-aspect-height($original-width, $original-height, $new-width)
   $new-height = remove-unit($original-height) / remove-unit($original-width) * remove-unit($new-width)
   return convert-unit($new-height, $unit)
 
+asset-url($filename)
+  return url("/assets/" + $filename)
+
 image-url($filename)
-  return url(../../assets/images/$filename)
+  return asset-url("/images/" + $filename)
+
+icon-url($filename)
+  return asset-url("/icons/" + $filename)
 
 font-url($filename)
-  return url(../../assets/fonts/$filename)
+  return asset-url("/fonts/" + $filename)

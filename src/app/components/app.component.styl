@@ -67,6 +67,19 @@ header
       font-size 2em
       margin-bottom 20px
 
+.instagram-container
+  background linear-gradient(#FFF,#DDD)
+  border-top 1px solid #EEE
+
+.youtube-container
+  background linear-gradient(#444,#222)
+
+.github-container
+  background linear-gradient(
+    rgba(255,255,255,.25),
+    rgba(255,255,255,1)
+  )
+
 .section-heading
 .section-body
   +media-xs()
@@ -77,11 +90,11 @@ header
     margin 50px 0
 
 .section-heading
+
   h2
     line-height 1
     text-align center
     text-transform uppercase
-    color #666
     margin 0
 
     +media-xs()
@@ -103,6 +116,15 @@ header
     span.heading-lg
       display block
       font-size 100%
+
+    .instagram-container &
+    .github-container &
+      color #666
+      text-shadow 1px 1px white
+
+    .youtube-container &
+      color #eee
+      text-shadow 1px 1px black
   
   p
     line-height 1
@@ -131,20 +153,6 @@ header
     &:hover
       text-decoration underline
       opacity 1
-
-.instagram-container
-  background-color #fff
-  background image-url("hideout.svg") repeat top center
-  background-size 50px
-
-.youtube-container
-  background linear-gradient(#444,#222)
-  .section-heading h2
-    color #eee
-    text-shadow 1px 1px black
-
-.github-container
-  background transparent
 
 .social-icons
   margin 30px 0
