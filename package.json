@@ -15,11 +15,9 @@
   },
   "scripts": {
     "ng": "ng",
-    "build:dev": "ng build",
-    "build:prod": "ng build --prod",
-    "server:dev": "ng serve",
-    "server:prod": "forever stopall && forever start server.js",
-    "deploy": "npm run build:prod && git-directory-deploy --directory public --branch gh-pages"
+    "dev:": "ng serve",
+    "build": "ng build --prod",
+    "deploy": "npm run build && git-directory-deploy --directory public --branch gh-pages"
   },
   "dependencies": {
     "@angular/animations": "8.2.13",
@@ -31,18 +29,18 @@
     "@angular/platform-browser-dynamic": "8.2.13",
     "@angular/router": "8.2.13",
     "core-js": "3.3.6",
-    "tslib": "^1.10.0",
     "zone.js": "~0.9.1",
+    "tslib": "1.10.0",
     "rxjs": "6.5.3",
     "ng-inline-svg": "9.1.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.803.17",
     "@angular/cli": "^8.3.17",
     "@angular/compiler-cli": "8.2.13",
     "@angular/language-service": "8.2.13",
-    "codelyzer": "^5.0.1",
-    "git-directory-deploy": "1.5.1",
-    "typescript": "3.5.3"
+    "tslint": "5.20.0",
+    "codelyzer": "5.0.1",
+    "typescript": "3.5.3",
+    "git-directory-deploy": "1.5.1"
   }
 }
