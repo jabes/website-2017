@@ -58,18 +58,10 @@ The app will automatically reload if you change any of the source files.
 1. Run `npm run server:dev` for a dev server
 2. Navigate to `http://localhost:4200/`
 
-## Update Github Pages Branch
-
-There is probably a better solution than this but it works.
-Delete the existing branch because updates are rejected otherwise.
-Then push the public build folder to the new branch.
-Make sure to set the custom domain setting on Github.
-https://gist.github.com/cobyism/4730490
+## Deploy Updates To Github Pages
 
 ```bash
-git branch -d gh-pages
-git push origin --delete gh-pages
-git subtree push --prefix public origin gh-pages
+npm run deploy
 ```
 
 ## Screenshots

@@ -14,7 +14,7 @@
     "build:prod": "ng build --prod",
     "server:dev": "ng serve",
     "server:prod": "forever stopall && forever start server.js",
-    "deploy": "npm run build:prod && git-directory-deploy --directory public"
+    "deploy": "npm run build:prod && git-directory-deploy --directory public --branch gh-pages"
   },
   "dependencies": {
     "@angular/animations": "^5.2.11",
@@ -38,6 +38,6 @@
     "@angular/compiler-cli": "^5.2.11",
     "@angular/language-service": "^5.2.11",
     "git-directory-deploy": "^1.5.1",
-    "typescript": "^2.9.2"
+    "typescript": "^2.6.2"
   }
 }
