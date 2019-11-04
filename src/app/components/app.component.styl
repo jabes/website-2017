@@ -90,11 +90,11 @@ header
 .section-heading
 .section-body
   +media-xs()
-    margin 20px 0
+    margin 20px 0 40px
   +media-md()
-    margin 30px 0
+    margin 30px 0 60px
   +media-lg()
-    margin 50px 0
+    margin 40px 0 80px
 
 .section-heading
   h2
@@ -105,23 +105,10 @@ header
 
     +media-xs()
       font-size 2.5em
-      margin-bottom 20px
     +media-md()
       font-size 3em
-      margin-bottom 40px
     +media-lg()
       font-size 3.5em
-      margin-bottom 60px
-
-    span.heading-sm
-      display block
-      font-size 50%
-    span.heading-md
-      display block
-      font-size 75%
-    span.heading-lg
-      display block
-      font-size 100%
 
     .instagram-container &
     .github-container &
@@ -132,33 +119,19 @@ header
       color #eee
       text-shadow 1px 1px black
   
-  p
+  h2 + p
     line-height 1
     text-align center
     color #888
     margin 0
+    margin-top .5em
 
     +media-xs()
       font-size 1.25em
-      margin-top -10px
-      margin-bottom 20px
     +media-md()
       font-size 1.5em
-      margin-top -30px
-      margin-bottom 40px
     +media-lg()
       font-size 1.75em
-      margin-top -50px
-      margin-bottom 60px
-
-  a
-    display inline-block
-    color inherit
-    text-decoration none
-    opacity .75
-    &:hover
-      text-decoration underline
-      opacity 1
 
 .social-icons
   margin 30px 0
@@ -278,3 +251,4 @@ header
 
 .text-group
   display inline-block
+  margin 0 .15em
