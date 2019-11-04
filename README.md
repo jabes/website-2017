@@ -11,37 +11,12 @@ sudo apt-get install nodejs
 sudo pacman -S nodejs
 ```
 
-[Composer](https://getcomposer.org/download/) Dependency Manager for PHP.
-
-```bash
-sudo apt-get install composer
-sudo pacman -S composer
-```
-
-[Vagrant](https://www.vagrantup.com/downloads.html) Build portable virtual environments.
-
-```bash
-sudo apt-get install vagrant
-sudo pacman -S vagrant
-```
-
-[VirtualBox](https://www.virtualbox.org/wiki/Downloads) Hypervisor for x86 computers.
-
-```bash
-sudo apt-get install virtualbox
-sudo pacman -S virtualbox
-```
-
 ## How To Install
 
 ```bash
 git clone git@github.com:jabes/website-2017.git
 cd website-2017
 npm install
-composer install
-vagrant box add laravel/homestead
-vagrant plugin install vagrant-hostsupdater
-vagrant up
 ```
 
 ## Production Server
