@@ -21,7 +21,6 @@ export class GithubComponent implements OnInit {
   handleError(error: HttpErrorResponse) {
     this.isError = true;
     this.errorObject = error;
-    console.log(error);
   }
 
   getRepo(repo: string): Observable<GithubRepo> {
