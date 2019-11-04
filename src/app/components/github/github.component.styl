@@ -2,18 +2,35 @@
 @import "~assets/styles/variables"
 @import "~assets/styles/mixins"
 
+@keyframes fadeIn
+  100%
+    opacity 1
+
 .github-repos
   display flex
   justify-content center
   flex-wrap wrap
 
 .github-repo
+  opacity 0
+  animation fadeIn 250ms linear forwards
+
+  &:nth-child(1)
+    animation-delay calc(100ms * 1)
+  &:nth-child(2)
+    animation-delay calc(100ms * 2)
+  &:nth-child(3)
+    animation-delay calc(100ms * 3)
+  &:nth-child(4)
+    animation-delay calc(100ms * 4)
+
   +media-xs()
     flex 0 0 calc(100% / 1 - 1em)
     border-bottom 1px solid #CCC
     padding-bottom 20px
     &:not(:last-child)
       margin-bottom 30px
+
   +media-md()
     flex 0 0 calc(100% / 2 - 1em)
     border none
