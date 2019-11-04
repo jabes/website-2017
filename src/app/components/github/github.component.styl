@@ -6,6 +6,12 @@
   100%
     opacity 1
 
+@keyframes infiniteScroll
+  0%
+    transform translate3d(0,0,0)
+  100%
+    transform translate3d(0,-320px,0)
+
 .github-repos
   display flex
   justify-content center
@@ -79,3 +85,26 @@
       width 1em
       height 1em
       color #52a0ad
+
+.bg-scroll-container
+  z-index -1
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+  overflow hidden
+  background-color #eee
+
+.bg-scroll-el
+  z-index 1
+  position absolute
+  top 0
+  left 0
+  height 400%
+  width 100%
+  background-image url(http://scarbroughstudios.com/img/codepen.svg)
+  background-position center center
+  background-size 500px
+  animation infiniteScroll 5s linear infinite
+  opacity .5
