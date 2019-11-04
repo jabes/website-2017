@@ -12,6 +12,8 @@
   100%
     transform rotate(360deg)
 
+drop-shadow-filter = drop-shadow(1px 1px 0 rgba(black, .5))
+
 header
 footer
 section
@@ -28,10 +30,12 @@ section
 
 header
   color white
+
   +media-xs()
     display block
     text-align center
     min-height 100vh
+
   +media-lg()
     display flex
     flex-direction row
@@ -43,8 +47,12 @@ header
     padding-bottom 10%
 
   h1
-    line-height 1
+  p
     margin 0
+    line-height 1
+    text-shadow 1px 1px black
+
+  h1
     +media-xs()
       font-size 3em
       margin-bottom 10px
@@ -56,7 +64,6 @@ header
       margin-bottom 20px
 
   p
-    margin 0
     +media-xs()
       font-size 1.25em
       margin-bottom 10px
@@ -68,8 +75,8 @@ header
       margin-bottom 20px
 
 .instagram-container
-  background linear-gradient(#FFF,#DDD)
   border-top 1px solid #EEE
+  background linear-gradient(#FFF,#DDD)
 
 .youtube-container
   background linear-gradient(#444,#222)
@@ -90,7 +97,6 @@ header
     margin 50px 0
 
 .section-heading
-
   h2
     line-height 1
     text-align center
@@ -162,9 +168,9 @@ header
     font-size 0
     color black
     &:not(:hover)
-      filter brightness(0) invert(1)
+      filter brightness(0) invert(1) drop-shadow-filter
     &:hover
-      filter drop-shadow(1px 1px 0 rgba(0,0,0,0.5))
+      filter drop-shadow-filter
     &:not(:last-child)
       margin-right 1rem
 
@@ -188,9 +194,10 @@ header
   background-size contain
 
 .avatar
-  border-radius 100%
   width 200px
   height 200px
+  border-radius 100%
+  filter drop-shadow-filter
 
 .page-down-icon
   position absolute
