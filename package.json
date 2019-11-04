@@ -4,9 +4,14 @@
   "author": "Justin Bull <bull.justin@gmail.com>",
   "homepage": "http://jbull.ca",
   "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/jabes/website-2017"
+  },
+  "engines": {
+    "node": ">= 10.16.0",
+    "npm": ">= 6.9.0"
   },
   "scripts": {
     "ng": "ng",
@@ -17,27 +22,27 @@
     "deploy": "npm run build:prod && git-directory-deploy --directory public --branch gh-pages"
   },
   "dependencies": {
-    "@angular/animations": "^5.2.11",
-    "@angular/common": "^5.2.11",
-    "@angular/compiler": "^5.2.11",
-    "@angular/core": "^5.2.11",
-    "@angular/forms": "^5.2.11",
-    "@angular/http": "^5.2.11",
-    "@angular/platform-browser": "^5.2.11",
-    "@angular/platform-browser-dynamic": "^5.2.11",
-    "@angular/router": "^5.2.11",
-    "core-js": "^2.6.10",
-    "express": "^4.17.1",
-    "forever": "^0.15.3",
-    "ng-inline-svg": "^5.1.4",
-    "rxjs": "^5.5.12",
-    "zone.js": "^0.8.29"
+    "@angular/animations": "8.2.13",
+    "@angular/common": "8.2.13",
+    "@angular/compiler": "8.2.13",
+    "@angular/core": "8.2.13",
+    "@angular/forms": "8.2.13",
+    "@angular/platform-browser": "8.2.13",
+    "@angular/platform-browser-dynamic": "8.2.13",
+    "@angular/router": "8.2.13",
+    "core-js": "3.3.6",
+    "tslib": "^1.10.0",
+    "zone.js": "~0.9.1",
+    "rxjs": "6.5.3",
+    "ng-inline-svg": "9.1.0"
   },
   "devDependencies": {
-    "@angular/cli": "^1.7.4",
-    "@angular/compiler-cli": "^5.2.11",
-    "@angular/language-service": "^5.2.11",
-    "git-directory-deploy": "^1.5.1",
-    "typescript": "^2.6.2"
+    "@angular-devkit/build-angular": "~0.803.17",
+    "@angular/cli": "^8.3.17",
+    "@angular/compiler-cli": "8.2.13",
+    "@angular/language-service": "8.2.13",
+    "codelyzer": "^5.0.1",
+    "git-directory-deploy": "1.5.1",
+    "typescript": "3.5.3"
   }
 }
