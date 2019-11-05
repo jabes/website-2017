@@ -1,24 +1,24 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "downlevelIteration": true,
-    "importHelpers": true,
+    "baseUrl": "./",
     "outDir": "./public/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
+    "module": "esnext",
     "moduleResolution": "node",
+    "declaration": false,
+    "downlevelIteration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "importHelpers": true,
+    "sourceMap": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
     ],
     "lib": [
-      "es2017",
+      "es2018",
       "dom"
-    ],
-    "module": "esnext",
-    "baseUrl": "./"
+    ]
   },
   "include": [
     "./src/**/*"
