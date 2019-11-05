@@ -75,6 +75,9 @@ header
       font-size 2em
       margin-bottom 20px
 
+footer
+  background-color white
+
 .instagram-container
   border-top 1px solid #EEE
   background linear-gradient(#FFF,#EEE)
@@ -188,10 +191,13 @@ header
     display none
 
 .header-left-side
-  +media-xs()
+.header-right-side
+  position relative
+  z-index 1
+
+.header-left-side
+  +media-md-below()
     margin-bottom 40px
-  +media-lg()
-    margin-bottom 0
 
 .header-right-side
   +media-lg()
@@ -203,7 +209,7 @@ header
   position absolute
   top 0
   left 0
-  z-index -1
+  z-index 0
   width 100%
   height 100%
 
@@ -229,7 +235,6 @@ header
   position relative
   padding 0 80px
   color white
-
   h2
     margin 0
 
