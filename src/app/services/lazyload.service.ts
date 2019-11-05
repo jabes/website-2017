@@ -23,7 +23,7 @@ export class LazyloadService {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         let image = entry.target as HTMLImageElement;
-        scope.preloadImage(image);
+        scope.loadImage(image);
         observer.unobserve(image);
       }
     });
@@ -37,13 +37,9 @@ export class LazyloadService {
     });
   }
 
-  preloadImage(image: HTMLImageElement) {
-    let preload = new Image();
-    preload.src = image.dataset.src;
-    preload.onload = () => {
-      image.src = preload.src;
-      image.classList.add('loaded');
-    }
+  loadImage(image: HTMLImageElement) {
+    image.src = image.dataset.src;
+    image.classList.add('loaded');
   }
 
 }
