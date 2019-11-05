@@ -1,7 +1,8 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewEncapsulation} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {LazyloadService} from "../../services/lazyload.service";
 
 @Component({
   selector: 'app-youtube',
@@ -18,6 +19,8 @@ export class YoutubeComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private el: ElementRef,
+    private lazyload: LazyloadService,
     public sanitizer: DomSanitizer
   ) {}
 
@@ -48,6 +51,9 @@ export class YoutubeComponent implements OnInit {
 
     this.getYoutubeVideoInfo(ids.join(',')).subscribe(response => {
       this.videos = response.items;
+      setTimeout(()=>{
+        this.lazyload.observeImages(this.el.nativeElement);
+      }, 0);
     });
 
   }

@@ -95,24 +95,16 @@
     filter drop-shadow(0 1px 0 rgba(black, .75))
     opacity 0
 
-  .video-thumbnail
-    display block
-    width 100%
-    object-fit cover
-    margin 0
-    padding 0
-    aspect-ratio(16, 9)
-    transition opacity 250ms
-
   .video-play-button
     position relative
     display block
     width 100%
+    aspect-ratio(16, 9)
     margin 0
     margin-bottom 20px
     padding 0
     border none
-    background black
+    background-color black
     cursor pointer
 
     &:hover
@@ -120,8 +112,7 @@
         animation fadeIn 250ms linear forwards
         animation-delay 150ms
       .video-thumbnail
-        filter grayscale(100%)
-        opacity 0.4
+        filter grayscale(100%) brightness(30%)
 
   .video-title
   .video-description

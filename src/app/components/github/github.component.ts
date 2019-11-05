@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ElementRef} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from "rxjs";
+import {LazyloadService} from "../../services/lazyload.service";
 
 @Component({
   selector: 'app-github',
@@ -16,7 +17,11 @@ export class GithubComponent implements OnInit {
   githubObjects: Array<GithubObject>;
   repoKeys: Array<string>;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private el: ElementRef,
+    private lazyload: LazyloadService
+  ) {}
 
   handleError(error: HttpErrorResponse) {
     this.isError = true;
@@ -42,7 +47,7 @@ export class GithubComponent implements OnInit {
     let first_paragraph;
     let first_screenshot;
 
-    tokens.forEach(function (token) {
+    tokens.forEach(token => {
       switch (token.type) {
         case 'heading':
           if (!first_heading) {
@@ -85,6 +90,9 @@ export class GithubComponent implements OnInit {
 
       if (this.repoKeys.length === this.githubObjects.length) {
         this.isLoaded = true;
+        setTimeout(()=>{
+          this.lazyload.observeImages(this.el.nativeElement);
+        }, 0);
       }
 
     }, error => this.handleError(error));

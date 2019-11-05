@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ElementRef} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {LazyloadService} from "../../services/lazyload.service";
 
 @Component({
   selector: 'app-instagram',
@@ -13,7 +14,11 @@ export class InstagramComponent implements OnInit {
   isLoaded: boolean;
   posts: Array<InstagramPost>;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private el: ElementRef,
+    private lazyload: LazyloadService
+  ) {
     this.isLoaded = false;
   }
 
@@ -44,27 +49,14 @@ export class InstagramComponent implements OnInit {
     }
   }
 
-  preloadImages() {
-    let scope = this;
-    let numLoaded = 0;
-    for (let i = 0; i < scope.posts.length; i++) {
-      let post = scope.posts[i];
-      let image = new Image();
-      image.src = post.images.standard_resolution.url;
-      image.onload = function () {
-        numLoaded++;
-        if (numLoaded === scope.posts.length) {
-          scope.isLoaded = true;
-        }
-      };
-    }
-  }
-
   ngOnInit() {
     this.getInstagramPosts().subscribe(response => {
       this.posts = response.data;
       this.parseCaptions();
-      this.preloadImages();
+      this.isLoaded = true;
+      setTimeout(()=>{
+        this.lazyload.observeImages(this.el.nativeElement);
+      }, 0);
     });
   }
 
