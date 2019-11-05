@@ -151,9 +151,11 @@ media-variants($selector)
     .{$selector-landscape}
       {block}
 
-font-face($family, $file, $weight = normal, $style = normal, $format = 'woff')
+font-face($family, $file, $weight = 400, $style = normal, $display = swap, $format = 'woff2', $unicode = U+0-10FFFF)
   @font-face
     font-family $family
     font-weight $weight
     font-style $style
+    font-display $display
     src font-url($file + '.' + $format) format($format)
+    unicode-range $unicode
