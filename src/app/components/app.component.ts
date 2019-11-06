@@ -37,7 +37,37 @@ export class AppComponent implements OnInit {
   ];
 
   ngOnInit() {
-    particlesJS.load('footerBgContainer', 'assets/particles.json');
+    particlesJS.load('footerBgContainer', {
+      particles: {
+        number: {
+          value: 250
+        },
+        color: {
+          value: "#081D58"
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.3,
+          random: true
+        },
+        size: {
+          value: 4,
+          random: true
+        },
+        line_linked: {
+          enable: false
+        },
+        move: {
+          enable: true,
+          speed: 2,
+          direction: "none",
+          random: true,
+          straight: false
+        }
+      }
+    });
   }
 
   ngAfterViewInit() {

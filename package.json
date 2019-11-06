@@ -41,7 +41,7 @@
     "@angular/language-service": "8.2.13",
     "codelyzer": "5.0.1",
     "git-directory-deploy": "1.5.1",
-    "tslint": "5.20.0",
+    "tslint": "5.20.1",
     "typescript": "3.5.3"
   }
 }
