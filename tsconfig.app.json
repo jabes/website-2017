@@ -3,15 +3,15 @@
   "compilerOptions": {
     "outDir": "./public/out-tsc/app",
     "paths": {
-      "@app/*": ["./src/app/*"],
-      "@env/*": ["./src/environments/*"]
+      "@app/*": ["src/app/*"],
+      "@env/*": ["src/environments/*"]
     }
   },
   "include": [
-    "./src/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "./node_modules",
-    "./src/**/*.spec.ts"
+    "node_modules",
+    "**/*.spec.ts"
   ]
 }

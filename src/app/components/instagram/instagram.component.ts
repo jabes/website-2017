@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {LazyloadService} from "@app/services/lazyload.service";
+import {LazyloadService} from '@app/services/lazyload.service';
 import {Observable} from 'rxjs';
 
 @Component({
