@@ -37,16 +37,16 @@ export class AppComponent implements OnInit {
   ];
 
   ngOnInit() {
-    particlesJS.load('footerBgContainer', {
+    particlesJS('footerBgContainer', {
       particles: {
         number: {
           value: 250
         },
         color: {
-          value: "#081D58"
+          value: '#081D58'
         },
         shape: {
-          type: "circle"
+          type: 'circle'
         },
         opacity: {
           value: 0.3,
@@ -62,7 +62,7 @@ export class AppComponent implements OnInit {
         move: {
           enable: true,
           speed: 2,
-          direction: "none",
+          direction: 'none',
           random: true,
           straight: false
         }
@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
 
   ngAfterViewInit() {
     VANTA.WAVES({
-      el: "#headerBgContainer",
+      el: '#headerBgContainer',
       color: 0x1e4466,
       shininess: 20.00,
       waveHeight: 10.00,
