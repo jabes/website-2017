@@ -90,9 +90,7 @@ export class GithubComponent implements OnInit {
 
       if (this.repoKeys.length === this.githubObjects.length) {
         this.isLoaded = true;
-        setTimeout(()=>{
-          this.lazyload.observeImages(this.el.nativeElement);
-        }, 0);
+        setTimeout(() => this.lazyload.observeImages(this.el.nativeElement), 0);
       }
 
     }, error => this.handleError(error));

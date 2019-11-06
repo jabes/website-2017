@@ -51,9 +51,7 @@ export class YoutubeComponent implements OnInit {
 
     this.getYoutubeVideoInfo(ids.join(',')).subscribe(response => {
       this.videos = response.items;
-      setTimeout(()=>{
-        this.lazyload.observeImages(this.el.nativeElement);
-      }, 0);
+      setTimeout(() => this.lazyload.observeImages(this.el.nativeElement), 0);
     });
 
   }

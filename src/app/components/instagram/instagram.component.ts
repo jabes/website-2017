@@ -54,9 +54,7 @@ export class InstagramComponent implements OnInit {
       this.posts = response.data;
       this.parseCaptions();
       this.isLoaded = true;
-      setTimeout(()=>{
-        this.lazyload.observeImages(this.el.nativeElement);
-      }, 0);
+      setTimeout(() => this.lazyload.observeImages(this.el.nativeElement), 0);
     });
   }
 
