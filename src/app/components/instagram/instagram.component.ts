@@ -1,7 +1,7 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {LazyloadService} from "@app/services/lazyload.service";
 import {Observable} from 'rxjs';
-import {LazyloadService} from "../../services/lazyload.service";
 
 @Component({
   selector: 'app-instagram',

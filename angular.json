@@ -21,10 +21,15 @@
               "src/favicon.ico",
               "src/CNAME"
             ],
+            "scripts": [],
             "styles": [
               "src/main.styl"
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]
+            }
           },
           "configurations": {
             "production": {

@@ -1,8 +1,8 @@
 import {Component, OnInit, ElementRef, ViewEncapsulation} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {HttpClient} from '@angular/common/http';
+import {LazyloadService} from "@app/services/lazyload.service";
 import {Observable} from 'rxjs';
-import {LazyloadService} from "../../services/lazyload.service";
 
 @Component({
   selector: 'app-youtube',
