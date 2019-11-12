@@ -6,16 +6,22 @@
       <a [href]="post.link" class="post-link"></a>
 
       <div *ngIf="isImage(post)" class="post-media media-type-image">
-        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" [attr.data-src]="post.images.standard_resolution.url">
+        <img alt="{{ post.caption.text }}"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             [attr.data-src]="post.images.standard_resolution.url">
       </div>
 
       <div *ngIf="isCaroursel(post)" class="post-media media-type-carousel">
         <div class="featured-image">
-          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" [attr.data-src]="post.carousel_media[0].images.standard_resolution.url">
+          <img alt="{{ post.caption.text }}"
+               src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+               [attr.data-src]="post.carousel_media[0].images.standard_resolution.url">
         </div>
         <div class="sidebar-images">
           <div *ngFor="let item of post.carousel_media | slice:1:4; index as i" class="image">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" [attr.data-src]="item.images.standard_resolution.url" class="{{ i }}">
+            <img alt="{{ post.caption.text }}"
+                 src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                 [attr.data-src]="item.images.standard_resolution.url" class="{{ i }}">
             <div *ngIf="i == 2 && post.carousel_media.length > 4" class="view-all-text">
               +{{ post.carousel_media.length - 4 }} more
             </div>

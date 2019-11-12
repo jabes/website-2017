@@ -34,7 +34,6 @@ interface InstagramCarouselMedia {
 }
 
 interface InstagramPost {
-
   type: string
   link: string
   created_time: string

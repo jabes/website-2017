@@ -4,7 +4,9 @@
     <div *ngFor="let githubObject of githubObjects" class="github-repo">
 
       <a [href]="githubObject.repo.homepage || githubObject.repo.html_url" class="repo-link">
-        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" [attr.data-src]="githubObject.readme.screenshot">
+        <img alt="{{ githubObject.readme.heading }}"
+             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+             [attr.data-src]="githubObject.readme.screenshot">
       </a>
 
       <h3>{{ githubObject.readme.heading }}</h3>
