@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, AfterViewInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +6,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['app.component.styl']
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit {
 
   socials = [
     {
@@ -36,49 +36,34 @@ export class AppComponent implements OnInit {
     },
   ];
 
-  ngOnInit() {
+  loadParticlesJS() {
     particlesJS('footerBgContainer', {
       particles: {
-        number: {
-          value: 250
-        },
-        color: {
-          value: '#081D58'
-        },
-        shape: {
-          type: 'circle'
-        },
-        opacity: {
-          value: 0.3,
-          random: true
-        },
-        size: {
-          value: 4,
-          random: true
-        },
-        line_linked: {
-          enable: false
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: 'none',
-          random: true,
-          straight: false
-        }
+        number: { value: 250 },
+        color: { value: '#081D58' },
+        shape: { type: 'circle' },
+        opacity: { value: 0.3, random: true },
+        size: { value: 4, random: true },
+        line_linked: { enable: false },
+        move: { enable: true, speed: 2, direction: 'none', random: true, straight: false }
       }
     });
   }
 
-  ngAfterViewInit() {
+  loadVantaWaves() {
     VANTA.WAVES({
       el: '#headerBgContainer',
       color: 0x1e4466,
       shininess: 20.00,
       waveHeight: 10.00,
       waveSpeed: 0.75,
-      zoom: 1,
+      zoom: 1
     });
+  }
+
+  ngAfterViewInit() {
+    this.loadParticlesJS();
+    this.loadVantaWaves();
   }
 
 }
