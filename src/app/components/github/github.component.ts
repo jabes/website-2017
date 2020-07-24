@@ -57,7 +57,8 @@ export class GithubComponent implements OnInit {
         case 'paragraph':
           // does the paragraph contain a screen shot link?
           // example: ![](screenshot.png)
-          let regex = new RegExp(/(\!\[.*\]\()(.*)(\))/);
+          let pattern = /(!\[.*]\()(.*)(\))/;
+          let regex = new RegExp(pattern);
           let results = token.text.match(regex);
           if (results && !first_screenshot) {
               let base_path = response.download_url.replace(response.path,'');
@@ -73,7 +74,8 @@ export class GithubComponent implements OnInit {
       }
     });
 
-    let regex = new RegExp(/https:\/\/raw.githubusercontent.com\/(.*)\/(.*)\/master\/README.md/);
+    let pattern = /https:\/\/raw.githubusercontent.com\/(.*)\/(.*)\/master\/README.md/;
+    let regex = new RegExp(pattern);
     let results = response.download_url.match(regex);
     let repoKey = results[2];
 

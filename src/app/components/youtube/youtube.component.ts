@@ -1,5 +1,4 @@
 import {Component, OnInit, ElementRef, ViewEncapsulation} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
 import {HttpClient} from '@angular/common/http';
 import {LazyloadService} from '@app/services/lazyload.service';
 import {Observable} from 'rxjs';
@@ -21,7 +20,6 @@ export class YoutubeComponent implements OnInit {
     private http: HttpClient,
     private el: ElementRef,
     private lazyload: LazyloadService,
-    public sanitizer: DomSanitizer
   ) {}
 
   setActiveVideo(video: YoutubeVideo) {

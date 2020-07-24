@@ -19,6 +19,7 @@ interface GithubRepo {
   archived: boolean
   private: boolean
   fork: boolean
+  homepage: string
   html_url: string
   created_at: string
   updated_at: string

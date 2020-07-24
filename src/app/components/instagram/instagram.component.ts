@@ -17,44 +17,78 @@ export class InstagramComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private el: ElementRef,
-    private lazyload: LazyloadService
+    private lazyLoad: LazyloadService
   ) {
     this.isLoaded = false;
   }
 
   isImage(post: InstagramPost): boolean {
-    return post.type == 'image';
+    return post.media_type == 'IMAGE';
   }
 
-  isCaroursel(post: InstagramPost): boolean {
-    return post.type == 'carousel';
+  isCarousel(post: InstagramPost): boolean {
+    return post.media_type == 'CAROUSEL_ALBUM';
   }
 
   isVideo(post: InstagramPost): boolean {
-    return post.type == 'video';
+    return post.media_type == 'VIDEO';
   }
 
   getInstagramPosts(): Observable<InstagramResponse> {
-    const user_id = '48623844';
-    const access_token = '48623844.3deca28.3ed677d7451643fead352c1b89ef738e';
-    const api_url = `https://api.instagram.com/v1/users/${user_id}/media/recent?access_token=${access_token}&count=8`;
+    const limit = 12;
+    const fields = 'id,username,caption,media_type,media_url,permalink,thumbnail_url,timestamp'
+    const access_token = 'IGQVJYZAVJnWXc0c1B2bFJCVjJuTktNTFdQM3NRMVBCcTRvLXFGa2tCZAE9CNTYxWVhJNkhGSy0ycTk0dFNPaWVpTzB2ZA1dOUVRvY2MzN005bWw4UWh0cXlDYldoYWQ0aGxGZAEs3QjRabXNMOGtqOFZAKSgZDZD';
+    const api_url = `https://graph.instagram.com/me/media?fields=${fields}&access_token=${access_token}&limit=${limit}`;
+    return this.http.get<InstagramResponse>(api_url);
+  }
+
+  getInstagramChildren(post: InstagramPost): Observable<InstagramResponse> {
+    const fields = 'id,username,media_type,media_url,permalink,timestamp'
+    const access_token = 'IGQVJYZAVJnWXc0c1B2bFJCVjJuTktNTFdQM3NRMVBCcTRvLXFGa2tCZAE9CNTYxWVhJNkhGSy0ycTk0dFNPaWVpTzB2ZA1dOUVRvY2MzN005bWw4UWh0cXlDYldoYWQ0aGxGZAEs3QjRabXNMOGtqOFZAKSgZDZD';
+    const api_url = `https://graph.instagram.com/${post.id}/children?fields=${fields}&access_token=${access_token}`;
     return this.http.get<InstagramResponse>(api_url);
   }
 
   parseCaptions() {
     for (let i = 0; i < this.posts.length; i++) {
-      let caption = this.posts[i].caption.text;
+      let caption = this.posts[i].caption;
       caption = twemoji.parse(caption);
-      this.posts[i].caption.text = caption;
+      this.posts[i].caption = caption;
     }
+  }
+
+  checkLoaded() {
+    let loaded = true;
+    if (this.posts == undefined || this.posts.length == 0) {
+      loaded = false;
+    } else {
+      this.posts.forEach(post => {
+        if (this.isCarousel(post) == true) {
+          if (post.children == undefined || post.children.length == 0) {
+            loaded = false;
+          }
+        }
+      });
+    }
+    if (loaded) {
+      setTimeout(() => this.lazyLoad.observeImages(this.el.nativeElement), 0);
+    }
+    return loaded;
   }
 
   ngOnInit() {
     this.getInstagramPosts().subscribe(response => {
       this.posts = response.data;
+      this.posts.forEach((post, index) => {
+        if (this.isCarousel(post) == true) {
+          this.getInstagramChildren(post).subscribe(response => {
+            this.posts[index].children = response.data;
+            this.isLoaded = this.checkLoaded();
+          });
+        }
+      });
       this.parseCaptions();
-      this.isLoaded = true;
-      setTimeout(() => this.lazyload.observeImages(this.el.nativeElement), 0);
+      this.isLoaded = this.checkLoaded();
     });
   }
 

@@ -5,7 +5,7 @@
            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
            [attr.data-src]="video.snippet.thumbnails.maxres.url"
            class="video-thumbnail">
-      <div [inlineSVG]="'/assets/icons/play.svg'" class="play-icon"></div>
+      <span [inlineSVG]="'/assets/icons/play.svg'" class="play-icon"></span>
     </button>
     <h3 class="video-title">{{ video.snippet.title }}</h3>
     <p class="video-description">{{ video.snippet.description }}</p>
@@ -19,7 +19,7 @@
 <div *ngIf="activeVideo != undefined" (click)="clearActiveVideo()" class="youtube-overlay">
   <div class="overlay-body" [innerHTML]="activeVideo.player.embedHtml | safeHtml"></div>
   <button (click)="clearActiveVideo()" class="close-overlay-button">
-    <div [inlineSVG]="'/assets/icons/close.svg'" class="close-icon"></div>
+    <span [inlineSVG]="'/assets/icons/close.svg'" class="close-icon"></span>
   </button>
 </div>
 

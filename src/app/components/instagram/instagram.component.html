@@ -3,27 +3,27 @@
   <div class="instagram-posts">
     <div *ngFor="let post of posts" class="instagram-post">
 
-      <a [href]="post.link" class="post-link"></a>
+      <a [href]="post.permalink" class="post-link"></a>
 
       <div *ngIf="isImage(post)" class="post-media media-type-image">
-        <img alt="{{ post.caption.text }}"
+        <img alt="{{ post.caption }}"
              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-             [attr.data-src]="post.images.standard_resolution.url">
+             [attr.data-src]="post.media_url">
       </div>
 
-      <div *ngIf="isCaroursel(post)" class="post-media media-type-carousel">
+      <div *ngIf="isCarousel(post)" class="post-media media-type-carousel">
         <div class="featured-image">
-          <img alt="{{ post.caption.text }}"
+          <img alt="{{ post.caption }}"
                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-               [attr.data-src]="post.carousel_media[0].images.standard_resolution.url">
+               [attr.data-src]="post.children[0].media_url">
         </div>
         <div class="sidebar-images">
-          <div *ngFor="let item of post.carousel_media | slice:1:4; index as i" class="image">
-            <img alt="{{ post.caption.text }}"
+          <div *ngFor="let child of post.children | slice:1:4; index as i" class="image">
+            <img alt="{{ child.caption }}"
                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-                 [attr.data-src]="item.images.standard_resolution.url" class="{{ i }}">
-            <div *ngIf="i == 2 && post.carousel_media.length > 4" class="view-all-text">
-              +{{ post.carousel_media.length - 4 }} more
+                 [attr.data-src]="child.media_url" class="image-{{ i }}">
+            <div *ngIf="i == 2 && post.children.length > 4" class="view-all-text">
+              +{{ post.children.length - 4 }} more
             </div>
           </div>
         </div>
@@ -31,10 +31,8 @@
 
       <div *ngIf="isVideo(post)" class="post-media media-type-video">
         <video
-          [src]="post.videos.standard_resolution.url"
-          [poster]="post.images.standard_resolution.url"
-          [width]="post.videos.standard_resolution.width"
-          [height]="post.videos.standard_resolution.height"
+          [src]="post.media_url"
+          [poster]="post.thumbnail_url"
           [autoplay]="true"
           [loop]="true"
           [muted]="true"></video>
@@ -50,16 +48,6 @@
             </switch>
           </svg>
         </figcaption>
-        <div class="post-stats">
-          <div class="post-stat">
-            <div [inlineSVG]="'/assets/icons/heart.svg'" class="stat-icon"></div>
-            <span class="stat-count">{{ post.likes.count }}</span>
-          </div>
-          <div class="post-stat">
-            <div [inlineSVG]="'/assets/icons/chat.svg'" class="stat-icon"></div>
-            <span class="stat-count">{{ post.comments.count }}</span>
-          </div>
-        </div>
       </figure>
 
     </div>
