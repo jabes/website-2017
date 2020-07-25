@@ -10,8 +10,8 @@
     "url": "https://github.com/jabes/website-2017"
   },
   "engines": {
-    "node": ">= 14.5.0",
-    "npm": ">= 6.14.5"
+    "node": ">= 14.6.0",
+    "npm": ">= 6.14.7"
   },
   "scripts": {
     "ng": "ng",
