@@ -14,11 +14,11 @@ export class LazyloadService {
   }
 
   constructor() {
-    let callback = (entries, observer) => { this.lazyloadImages(entries, observer); };
+    let callback = (entries, observer) => { this.lazyLoadImages(entries, observer); };
     this.imageObserver = new IntersectionObserver(callback, this.imageObserverOptions);
   }
 
-  lazyloadImages(entries: Array<IntersectionObserverEntry>, observer: IntersectionObserver) {
+  lazyLoadImages(entries: Array<IntersectionObserverEntry>, observer: IntersectionObserver) {
     let scope = this;
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -31,7 +31,6 @@ export class LazyloadService {
 
   observeImages(parent: HTMLElement) {
     const nodeList = parent.querySelectorAll('img[data-src]');
-    const images = Array.prototype.slice.call(nodeList);
     nodeList.forEach(image => {
       this.imageObserver.observe(image);
     });

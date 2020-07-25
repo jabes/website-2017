@@ -15,11 +15,12 @@ export class YoutubeComponent implements OnInit {
 
   videos: Array<YoutubeVideo>;
   activeVideo: YoutubeVideo;
+  error: string;
 
   constructor(
     private http: HttpClient,
     private el: ElementRef,
-    private lazyload: LazyloadService,
+    private lazyLoad: LazyloadService,
   ) {}
 
   setActiveVideo(video: YoutubeVideo) {
@@ -30,10 +31,27 @@ export class YoutubeComponent implements OnInit {
     delete this.activeVideo;
   }
 
-  getYoutubeVideoInfo(video_id: string): Observable<YoutubeResponse> {
-    const api_key = 'AIzaSyAGac0L1t9dlIw8U229C1GkFNa2Sh4oSXc';
-    const api_url = `https://www.googleapis.com/youtube/v3/videos?id=${video_id}&key=${api_key}&part=snippet,player,statistics`;
+  getYoutubeVideoInfo(ids: Array<string>): Observable<YoutubeResponse> {
+    const queryData = {
+      'id': ids.join(','),
+      'key': 'AIzaSyAGac0L1t9dlIw8U229C1GkFNa2Sh4oSXc',
+      'part': 'snippet,player,statistics',
+    };
+
+    let searchParameters = new URLSearchParams();
+    Object.keys(queryData).forEach(parameterName => {
+      searchParameters.append(parameterName, queryData[parameterName]);
+    });
+
+    const api_query = searchParameters.toString();
+    const api_url = `https://www.googleapis.com/youtube/v3/videos?${api_query}`;
     return this.http.get<YoutubeResponse>(api_url);
+  }
+
+  loadImages() {
+    let callback = () => this.lazyLoad.observeImages(this.el.nativeElement);
+    let milliseconds = 0;
+    setTimeout(callback, milliseconds);
   }
 
   ngOnInit() {
@@ -47,10 +65,15 @@ export class YoutubeComponent implements OnInit {
 
     this.videos = [];
 
-    this.getYoutubeVideoInfo(ids.join(',')).subscribe(response => {
-      this.videos = response.items;
-      setTimeout(() => this.lazyload.observeImages(this.el.nativeElement), 0);
-    });
+    this.getYoutubeVideoInfo(ids).subscribe(
+      response => {
+        this.videos = response.items;
+        this.loadImages();
+      },
+      response => {
+        this.error = response.error.error.message;
+      }
+    );
 
   }
 }

@@ -16,6 +16,8 @@
   </div>
 </div>
 
+<div *ngIf="error != undefined" class="youtube-error" [innerHTML]="error"></div>
+
 <div *ngIf="activeVideo != undefined" (click)="clearActiveVideo()" class="youtube-overlay">
   <div class="overlay-body" [innerHTML]="activeVideo.player.embedHtml | safeHtml"></div>
   <button (click)="clearActiveVideo()" class="close-overlay-button">

@@ -41,6 +41,12 @@ interface YoutubeVideo {
   statistics: YoutubeStatistics
 }
 
+interface YoutubeError {
+  code: number
+  message: string
+}
+
 interface YoutubeResponse {
   items: Array<YoutubeVideo>
+  error: YoutubeError
 }

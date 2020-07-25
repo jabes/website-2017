@@ -20,12 +20,18 @@ export class GithubComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private el: ElementRef,
-    private lazyload: LazyloadService
+    private lazyLoad: LazyloadService
   ) {}
 
   handleError(error: HttpErrorResponse) {
     this.isError = true;
     this.errorObject = error;
+  }
+
+  loadImages() {
+    let callback = () => this.lazyLoad.observeImages(this.el.nativeElement);
+    let milliseconds = 0;
+    setTimeout(callback, milliseconds);
   }
 
   getRepo(repo: string): Observable<GithubRepo> {
@@ -92,10 +98,10 @@ export class GithubComponent implements OnInit {
 
       if (this.repoKeys.length === this.githubObjects.length) {
         this.isLoaded = true;
-        setTimeout(() => this.lazyload.observeImages(this.el.nativeElement), 0);
+        this.loadImages();
       }
 
-    }, error => this.handleError(error));
+    }, this.handleError);
 
   }
 

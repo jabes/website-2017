@@ -57,8 +57,15 @@ export class InstagramComponent implements OnInit {
     }
   }
 
-  checkLoaded() {
+  loadImages() {
+    let callback = () => this.lazyLoad.observeImages(this.el.nativeElement);
+    let milliseconds = 0;
+    setTimeout(callback, milliseconds);
+  }
+
+  checkPosts() {
     let loaded = true;
+
     if (this.posts == undefined || this.posts.length == 0) {
       loaded = false;
     } else {
@@ -70,9 +77,11 @@ export class InstagramComponent implements OnInit {
         }
       });
     }
+
     if (loaded) {
-      setTimeout(() => this.lazyLoad.observeImages(this.el.nativeElement), 0);
+      this.loadImages();
     }
+
     return loaded;
   }
 
@@ -83,12 +92,12 @@ export class InstagramComponent implements OnInit {
         if (this.isCarousel(post) == true) {
           this.getInstagramChildren(post).subscribe(response => {
             this.posts[index].children = response.data;
-            this.isLoaded = this.checkLoaded();
+            this.isLoaded = this.checkPosts();
           });
         }
       });
       this.parseCaptions();
-      this.isLoaded = this.checkLoaded();
+      this.isLoaded = this.checkPosts();
     });
   }
 
