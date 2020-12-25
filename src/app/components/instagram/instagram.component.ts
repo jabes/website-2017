@@ -34,17 +34,19 @@ export class InstagramComponent implements OnInit {
     return post.media_type == 'VIDEO';
   }
 
+  // https://developers.facebook.com/apps/587229432160055/instagram-basic-display/basic-display/
   getInstagramPosts(): Observable<InstagramResponse> {
     const limit = 12;
     const fields = 'id,username,caption,media_type,media_url,permalink,thumbnail_url,timestamp'
-    const access_token = 'IGQVJYZAVJnWXc0c1B2bFJCVjJuTktNTFdQM3NRMVBCcTRvLXFGa2tCZAE9CNTYxWVhJNkhGSy0ycTk0dFNPaWVpTzB2ZA1dOUVRvY2MzN005bWw4UWh0cXlDYldoYWQ0aGxGZAEs3QjRabXNMOGtqOFZAKSgZDZD';
+    const access_token = 'IGQVJWdDVOdDVvT0tjZAFN6VkZAMcHBHem13WlNvQVBOS000VEN2NVpyOVhXRXk0N1Q2NnROQ3Y1QkR0bm0wbVhpeUNLa2N4eFF1alplT2dqOFVnWGdNa1ZAwZAWRzYjFBUzI5Vm54Q3hEcmNueTdUTkxjVwZDZD';
     const api_url = `https://graph.instagram.com/me/media?fields=${fields}&access_token=${access_token}&limit=${limit}`;
     return this.http.get<InstagramResponse>(api_url);
   }
 
+  // https://developers.facebook.com/apps/587229432160055/instagram-basic-display/basic-display/
   getInstagramChildren(post: InstagramPost): Observable<InstagramResponse> {
     const fields = 'id,username,media_type,media_url,permalink,timestamp'
-    const access_token = 'IGQVJYZAVJnWXc0c1B2bFJCVjJuTktNTFdQM3NRMVBCcTRvLXFGa2tCZAE9CNTYxWVhJNkhGSy0ycTk0dFNPaWVpTzB2ZA1dOUVRvY2MzN005bWw4UWh0cXlDYldoYWQ0aGxGZAEs3QjRabXNMOGtqOFZAKSgZDZD';
+    const access_token = 'IGQVJWdDVOdDVvT0tjZAFN6VkZAMcHBHem13WlNvQVBOS000VEN2NVpyOVhXRXk0N1Q2NnROQ3Y1QkR0bm0wbVhpeUNLa2N4eFF1alplT2dqOFVnWGdNa1ZAwZAWRzYjFBUzI5Vm54Q3hEcmNueTdUTkxjVwZDZD';
     const api_url = `https://graph.instagram.com/${post.id}/children?fields=${fields}&access_token=${access_token}`;
     return this.http.get<InstagramResponse>(api_url);
   }
