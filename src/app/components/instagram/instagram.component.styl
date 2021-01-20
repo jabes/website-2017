@@ -21,18 +21,25 @@
 
   &:nth-child(1)
     animation-delay calc(100ms * 1)
+
   &:nth-child(2)
     animation-delay calc(100ms * 2)
+
   &:nth-child(3)
     animation-delay calc(100ms * 3)
+
   &:nth-child(4)
     animation-delay calc(100ms * 4)
+
   &:nth-child(5)
     animation-delay calc(100ms * 5)
+
   &:nth-child(6)
     animation-delay calc(100ms * 6)
+
   &:nth-child(7)
     animation-delay calc(100ms * 7)
+
   &:nth-child(8)
     animation-delay calc(100ms * 8)
 
@@ -64,7 +71,6 @@
     position relative
     display block
     width 100%
-    background #CCC
     aspect-ratio(1, 1)
     overflow hidden
 
@@ -72,7 +78,7 @@
     position relative
     display block
     width 100%
-      height 100%
+    height 100%
 
     video
       object-fit fill
@@ -88,8 +94,11 @@
     height 100%
 
     .featured-image
+      position relative
       width 60%
       height 100%
+      border-radius 5px
+      overflow hidden
 
     .sidebar-images
       width 40%
@@ -102,10 +111,26 @@
       display flex
       flex-direction column
 
-      .image
-        position relative
-        flex auto
-        height (100% / 3)
+    .sidebar-image
+      position relative
+      flex auto
+      height (100% / 3)
+      margin-left 5px
+      border-radius 5px
+      overflow hidden
+
+      &:nth-child(1)
+        border-bottom-left-radius 0
+
+      &:nth-child(2)
+        border-top-left-radius 0
+        border-bottom-left-radius 0
+
+      &:nth-child(3)
+        border-top-left-radius 0
+
+      &:not(:last-child)
+        margin-bottom 5px
 
     .view-all-text
       width 100%
@@ -118,7 +143,7 @@
       display flex
       align-items center
       justify-content center
-      background-color rgba(0, 0, 0, .75)
+      background-color rgba(black, .75)
       color white
       font-size 1.25em
 
@@ -138,7 +163,7 @@
     pointer-events none
     opacity 0
     overflow hidden
-    background-color rgba(0, 0, 0, 0.8)
+    background-color rgba(black, .8)
 
   &:hover .post-caption
     animation fadeIn 250ms linear forwards
@@ -153,6 +178,7 @@
     svg
       width 100%
       height 100%
+
       foreignObject > p
         margin 0
         font-size 8px

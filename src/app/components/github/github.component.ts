@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {LazyloadService} from '@app/services/lazyload.service';
+import {LazyLoadService} from '@app/services/lazyload.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -20,7 +20,7 @@ export class GithubComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private el: ElementRef,
-    private lazyLoad: LazyloadService
+    private lazyLoad: LazyLoadService
   ) {}
 
   handleError(error: HttpErrorResponse) {

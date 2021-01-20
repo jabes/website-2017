@@ -78,17 +78,19 @@ header
 footer
   background-color white
 
-.instagram-container
-  border-top 1px solid #EEE
-  background linear-gradient(#FFF,#EEE)
-
-.youtube-container
-  background linear-gradient(#444,#222)
-
-.github-container
+section.instagram-container
   background linear-gradient(
-    rgba(255,255,255,.25),
-    rgba(255,255,255,1)
+    lighten(#962FBF, 25%),
+    darken(#962FBF, 25%)
+  )
+
+section.youtube-container
+  background linear-gradient(#444, #222)
+
+section.github-container
+  background linear-gradient(
+    rgba(white, .25),
+    rgba(white, 1)
   )
 
 .section-heading
@@ -101,9 +103,10 @@ footer
     margin 40px 0 80px
 
 .section-heading
+  text-align center
+
   h2
     line-height 1
-    text-align center
     text-transform uppercase
     margin 0
 
@@ -114,21 +117,32 @@ footer
     +media-lg()
       font-size 3.5em
 
-    .instagram-container &
     .github-container &
       color #666
       text-shadow 1px 1px white
 
+    .instagram-container &
+      color #FFF
+      text-shadow 1px 1px rgba(black, .5)
+
     .youtube-container &
-      color #eee
+      color #EEE
       text-shadow 1px 1px black
-  
+
   h2 + p
     line-height 1
-    text-align center
-    color #888
     margin 0
     margin-top .5em
+
+    .github-container &
+      color #888
+
+    .instagram-container &
+      color rgba(black .4)
+      border-top 1px solid rgba(black .2)
+      padding-top 15px
+      display inline-block
+      width auto
 
     +media-xs()
       font-size 1.25em
@@ -144,10 +158,13 @@ footer
     display inline-block
     font-size 0
     color black
+
     &:not(:hover)
       filter brightness(0) invert(1) drop-shadow-filter
+
     &:hover
       filter drop-shadow-filter
+
     &:not(:last-child)
       margin-right 1rem
 
@@ -219,8 +236,8 @@ footer
 
 .header-bg-container-overlay
   background linear-gradient(
-    rgba(0,0,0,0),
-    rgba(0,0,0,0.5)
+    rgba(black, 0),
+    rgba(black, 0.5)
   )
 
 .laurel-leaves-outer
@@ -239,6 +256,7 @@ footer
   position relative
   padding 0 80px
   color white
+
   h2
     margin 0
 

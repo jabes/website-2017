@@ -18,7 +18,7 @@
                [attr.data-src]="post.children[0].media_url">
         </div>
         <div class="sidebar-images">
-          <div *ngFor="let child of post.children | slice:1:4; index as i" class="image">
+          <div *ngFor="let child of post.children | slice:1:4; index as i" class="sidebar-image">
             <img alt="{{ child.caption }}"
                  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
                  [attr.data-src]="child.media_url" class="image-{{ i }}">
@@ -54,8 +54,8 @@
   </div>
 
   <div class="button-container">
-    <a href="https://www.instagram.com/bull.justin" class="button theme-dark">
-      <span>SEE MY INSTAGRAM</span>
+    <a href="https://www.instagram.com/bull.justin" class="button theme-instagram">
+      <span>SEE MORE PHOTOS</span>
     </a>
   </div>
 
@@ -63,6 +63,6 @@
 
 <div *ngIf="!isLoaded">
   <div class="loading-container">
-    <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon"></div>
+    <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon theme-instagram"></div>
   </div>
 </div>

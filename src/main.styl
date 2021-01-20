@@ -2,10 +2,9 @@
 @import "variables"
 @import "mixins"
 
-font-face(
-  'Quicksand', 'Quicksand-Regular', 400, normal, swap, 'woff2',
-  U+0000-00FF\, U+0131\, U+0152-0153\, U+02BB-02BC\, U+02C6\, U+02DA\, U+02DC\, U+2000-206F\, U+2074\, U+20AC\, U+2122\, U+2191\, U+2193\, U+2212\, U+2215\, U+FEFF\, U+FFFD
-)
+// https://fonts.googleapis.com/css2?family=Quicksand&display=swap
+$unicode-range = U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD
+font-face('Quicksand', 'Quicksand-Regular', 400, normal, swap, 'woff2', $unicode-range)
 
 html, body
   width 100%
@@ -126,11 +125,10 @@ img[data-src]
     left calc(0% - 20px)
     transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
 
-  &.theme-dark
+  &.theme-github
     background #222
     border-bottom-color #000
     color rgba(white, .8)
-    text-shadow 0px -1px 0px rgba(black, .4)
     &:hover
       color white
     &::after
@@ -138,11 +136,19 @@ img[data-src]
     &::before
       background #444
 
-  &.theme-light
+  &.theme-instagram
+    background #D62976
+    border-bottom-color #FA7E1E
+    color rgba(black, .5)
+    &::after
+      background #FA7E1E
+    &::before
+      background #FEDA75
+
+  &.theme-youtube
     background #DDD
     border-bottom-color #FFF
     color rgba(black, .8)
-    text-shadow 0px -1px 0px rgba(white, .4)
     &:hover
       color black
     &::after
@@ -173,5 +179,10 @@ img[data-src]
     display inline-block
     width 6em
     height 6em
-    color #888
     animation spin 1s linear infinite
+
+    &.theme-github
+      color #888
+
+    &.theme-instagram
+      color #FEDA75

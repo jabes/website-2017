@@ -1,6 +1,6 @@
 import {Component, OnInit, ElementRef, ViewEncapsulation} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {LazyloadService} from '@app/services/lazyload.service';
+import {LazyLoadService} from '@app/services/lazyload.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -20,7 +20,7 @@ export class YoutubeComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private el: ElementRef,
-    private lazyLoad: LazyloadService,
+    private lazyLoad: LazyLoadService,
   ) {}
 
   setActiveVideo(video: YoutubeVideo) {
