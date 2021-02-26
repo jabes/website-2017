@@ -1,9 +1,7 @@
 <div *ngIf="isLoaded">
 
   <div class="instagram-posts">
-    <div *ngFor="let post of posts" class="instagram-post">
-
-      <a [href]="post.permalink" class="post-link"></a>
+    <a [href]="post.permalink" *ngFor="let post of posts" class="instagram-post">
 
       <div *ngIf="isImage(post)" class="post-media media-type-image">
         <img alt="{{ post.caption }}"
@@ -50,7 +48,7 @@
         </figcaption>
       </figure>
 
-    </div>
+    </a>
   </div>
 
   <div class="button-container">
@@ -61,7 +59,15 @@
 
 </div>
 
-<div *ngIf="!isLoaded">
+<div *ngIf="isError">
+  <div class="error-container theme-white-text">
+    <div [inlineSVG]="'/assets/icons/http-error.svg'" class="http-error-icon"></div>
+    <h2>Oops! Something has gone wrong.</h2>
+    <p>{{ errorObject.error.error.message }}</p>
+  </div>
+</div>
+
+<div *ngIf="!isLoaded && !isError">
   <div class="loading-container">
     <div [inlineSVG]="'/assets/icons/loading.svg'" class="loading-icon theme-instagram"></div>
   </div>

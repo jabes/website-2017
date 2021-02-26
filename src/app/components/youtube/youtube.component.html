@@ -20,7 +20,7 @@
 
 <div *ngIf="activeVideo != undefined" (click)="clearActiveVideo()" class="youtube-overlay">
   <div class="overlay-body" [innerHTML]="activeVideo.player.embedHtml | safeHtml"></div>
-  <button (click)="clearActiveVideo()" class="close-overlay-button">
+  <button (click)="clearActiveVideo()" class="close-overlay-button" #closeOverlayButton>
     <span [inlineSVG]="'/assets/icons/close.svg'" class="close-icon"></span>
   </button>
 </div>

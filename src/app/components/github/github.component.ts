@@ -101,7 +101,7 @@ export class GithubComponent implements OnInit {
         this.loadImages();
       }
 
-    }, this.handleError);
+    }, error => this.handleError(error));
 
   }
 

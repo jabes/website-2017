@@ -35,7 +35,7 @@
 </div>
 
 <div *ngIf="isError">
-  <div class="error-container">
+  <div class="error-container theme-red-text">
     <div [inlineSVG]="'/assets/icons/http-error.svg'" class="http-error-icon"></div>
     <h2>Oops! Something has gone wrong.</h2>
     <p>{{ errorObject.error.message }}</p>

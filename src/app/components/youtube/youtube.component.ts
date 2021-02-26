@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewEncapsulation, ViewChild} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LazyLoadService} from '@app/services/lazyload.service';
 import {Observable} from 'rxjs';
@@ -13,6 +13,7 @@ import {Observable} from 'rxjs';
 
 export class YoutubeComponent implements OnInit {
 
+  closeOverlayButton: HTMLButtonElement;
   videos: Array<YoutubeVideo>;
   activeVideo: YoutubeVideo;
   error: string;
@@ -23,12 +24,33 @@ export class YoutubeComponent implements OnInit {
     private lazyLoad: LazyLoadService,
   ) {}
 
+  @ViewChild('closeOverlayButton', { static: false }) set content(elm: ElementRef) {
+    if (elm.nativeElement) {
+      this.closeOverlayButton = elm.nativeElement;
+    }
+  }
+
+  handleKeyDownEvent(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      this.clearActiveVideo();
+    }
+  }
+
+  focusCloseOverlayButton() {
+    if (this.closeOverlayButton) {
+      this.closeOverlayButton.focus();
+    }
+  }
+
   setActiveVideo(video: YoutubeVideo) {
     this.activeVideo = video;
+    setTimeout(() => this.focusCloseOverlayButton(), 0);
+    window.addEventListener('keydown', event => this.handleKeyDownEvent(event));
   }
 
   clearActiveVideo() {
     delete this.activeVideo;
+    window.removeEventListener('keydown', this.handleKeyDownEvent);
   }
 
   getYoutubeVideoInfo(ids: Array<string>): Observable<YoutubeResponse> {
