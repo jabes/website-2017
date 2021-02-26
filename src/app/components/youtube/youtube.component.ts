@@ -16,6 +16,7 @@ export class YoutubeComponent implements OnInit {
   closeOverlayButton: HTMLButtonElement;
   videos: Array<YoutubeVideo>;
   activeVideo: YoutubeVideo;
+  activeElement: Element;
   error: string;
 
   constructor(
@@ -44,6 +45,7 @@ export class YoutubeComponent implements OnInit {
 
   setActiveVideo(video: YoutubeVideo) {
     this.activeVideo = video;
+    this.activeElement = document.activeElement;
     setTimeout(() => this.focusCloseOverlayButton(), 0);
     window.addEventListener('keydown', event => this.handleKeyDownEvent(event));
   }
@@ -51,6 +53,11 @@ export class YoutubeComponent implements OnInit {
   clearActiveVideo() {
     delete this.activeVideo;
     window.removeEventListener('keydown', this.handleKeyDownEvent);
+    // Return focus to previous active element
+    if (this.activeElement instanceof HTMLButtonElement) {
+      this.activeElement.focus();
+      delete this.activeElement;
+    }
   }
 
   getYoutubeVideoInfo(ids: Array<string>): Observable<YoutubeResponse> {
