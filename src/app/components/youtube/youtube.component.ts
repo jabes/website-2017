@@ -25,7 +25,7 @@ export class YoutubeComponent implements OnInit {
   ) {}
 
   @ViewChild('closeOverlayButton', { static: false }) set content(elm: ElementRef) {
-    if (elm.nativeElement) {
+    if (elm) {
       this.closeOverlayButton = elm.nativeElement;
     }
   }

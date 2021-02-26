@@ -54,6 +54,7 @@
     flex 0 0 calc(100% / 4 - 1em)
 
   &:hover .post-media
+  &:focus .post-media
     img, video
       filter blur(10px)
 
@@ -138,6 +139,7 @@
       font-size 1.25em
 
   &:hover .post-overlay
+  &:focus .post-overlay
     opacity 1
 
   .post-overlay
@@ -156,6 +158,7 @@
     background-color rgba(black, .8)
 
   &:hover .post-caption
+  &:focus .post-caption
     animation fadeIn 250ms linear forwards
     animation-delay 100ms
 

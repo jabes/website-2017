@@ -118,10 +118,12 @@ img[data-src]
     transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
 
   &:hover::after
+  &:focus::after
     left calc(0% - 20px)
     transition left 600ms cubic-bezier(0.86, 0, 0.07, 1)
 
   &:hover::before
+  &:focus::before
     left calc(0% - 20px)
     transition left 800ms cubic-bezier(0.86, 0, 0.07, 1)
 
@@ -130,6 +132,7 @@ img[data-src]
     border-bottom-color #000
     color rgba(white, .8)
     &:hover
+    &:focus
       color white
     &::after
       background #888
@@ -150,6 +153,7 @@ img[data-src]
     border-bottom-color #FFF
     color rgba(black, .8)
     &:hover
+    &:focus
       color black
     &::after
       background #999
