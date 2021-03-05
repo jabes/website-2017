@@ -3,14 +3,17 @@
   <div class="github-repos">
     <div *ngFor="let githubObject of githubObjects" class="github-repo">
 
-      <a [href]="githubObject.repo.homepage || githubObject.repo.html_url" class="repo-link">
+      <a [href]="githubObject.repo.homepage || githubObject.repo.html_url"
+         rel="noopener noreferrer"
+         target="_blank"
+         class="repo-link">
         <img alt="{{ githubObject.readme.heading }}"
              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
              [attr.data-src]="githubObject.readme.screenshot">
       </a>
 
-      <h3>{{ githubObject.readme.heading }}</h3>
-      <div [innerHTML]="githubObject.readme.introduction | safeHtml"></div>
+      <h3 class="repo-heading">{{ githubObject.readme.heading }}</h3>
+      <div [innerHTML]="githubObject.readme.introduction | safeHtml" class="repo-description"></div>
 
       <div class="repo-stats">
         <div class="repo-stat" *ngIf="githubObject.repo.language">
@@ -27,7 +30,10 @@
   </div>
 
   <div class="button-container">
-    <a href="https://github.com/jabes" class="button theme-github">
+    <a class="button theme-github"
+       href="https://github.com/jabes"
+       rel="noopener noreferrer"
+       target="_blank">
       <span>SEE MY GITHUB</span>
     </a>
   </div>

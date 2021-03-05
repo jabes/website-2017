@@ -40,6 +40,10 @@
     &:focus .close-icon
       color red
 
+    &:focus
+      outline 2px dashed white
+      outline-offset 2px
+
   .overlay-body
     position absolute
     top 50%
@@ -114,6 +118,9 @@
 
     &:hover
     &:focus
+      outline 2px solid white
+      outline-offset 0
+
       .play-icon
         animation fadeIn 250ms linear forwards
         animation-delay 150ms
@@ -127,12 +134,12 @@
     margin .5em 0
 
   .video-title
-    color #BBB
+    color #DDD
     font-size 1.5em
     text-transform uppercase
 
   .video-description
-    color #888
+    color #BBB
 
   .video-stats
     color #BBB

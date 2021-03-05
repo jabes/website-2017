@@ -15,6 +15,7 @@
   display block
   position relative
   margin .5em
+  padding 0
   opacity 0
   overflow hidden
   border-radius 5px
@@ -52,6 +53,10 @@
     flex 0 0 calc(100% / 3 - 1em)
   +media-xl()
     flex 0 0 calc(100% / 4 - 1em)
+
+  &:focus
+    outline 2px dashed white
+    outline-offset 2px
 
   &:hover .post-media
   &:focus .post-media

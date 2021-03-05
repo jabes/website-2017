@@ -138,7 +138,7 @@ section.github-container
       color #888
 
     .instagram-container &
-      color rgba(black .4)
+      color rgba(black .6)
       border-top 1px solid rgba(black .2)
       padding-top 15px
       display inline-block
@@ -161,12 +161,16 @@ section.github-container
     padding 5px
     margin 5px
 
-    &:not(:hover)
+    &:not(:hover):not(:focus)
       filter brightness(0) invert(1) drop-shadow-filter
 
     &:hover
     &:focus
       filter drop-shadow-filter
+
+    &:focus
+      outline 2px dashed white
+      outline-offset 2px
 
   .social-icon
     display inline-block

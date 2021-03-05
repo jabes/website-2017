@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, OnInit, ElementRef, ViewEncapsulation} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {LazyLoadService} from '@app/services/lazyload.service';
 import {Observable} from 'rxjs';
@@ -6,7 +6,8 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-github',
   templateUrl: 'github.component.html',
-  styleUrls: ['github.component.styl']
+  styleUrls: ['github.component.styl'],
+  encapsulation: ViewEncapsulation.None,
 })
 
 export class GithubComponent implements OnInit {
